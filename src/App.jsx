@@ -14,7 +14,7 @@ function App() {
         {/* Centered Content with maxWidth and spacing */}
         <Flex direction="column" align="center" maxWidth="1200px" mx="auto" px={4}>
           {/* About Me Section */}
-          <Box mb={10}>
+          <Box id="about" mb={10}>
             <Text fontSize="lg" textAlign="center">
               I’m a software developer passionate about creating clean and scalable applications.
               I specialize in React and front-end development, constantly striving to learn new technologies
