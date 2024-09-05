@@ -6,7 +6,7 @@ import ProjectSection from './components/ProjectSection';
 import ContactSection from './components/ContactSection';
 import Imprint from './components/Imprint';
 import Privacy from './components/Privacy';
-import FooterSection from './components/FooterSection';  // New Footer Section
+import FooterSection from './components/FooterSection';  // Footer Section
 
 function ScrollToHashElement() {
   const location = useLocation();
@@ -26,9 +26,9 @@ function ScrollToHashElement() {
 function App() {
   return (
     <Router>
-
       <ScrollToHashElement />
 
+      {/* Ensure that the layout takes the full height of the viewport */}
       <Flex direction="column" minHeight="100vh" minWidth="100vw" bg="gray.900" color="white">
         <Navbar />
 
@@ -70,8 +70,8 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
         </Routes>
 
-        {/* Footer Section */}
-        <Box id="legal">
+        {/* Sticky Footer Section */}
+        <Box id="legal" width="100%" mt="auto">
           <FooterSection />
         </Box>
       </Flex>
