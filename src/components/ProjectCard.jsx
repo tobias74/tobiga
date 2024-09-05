@@ -2,7 +2,16 @@ import { Box, Image, Text, Link, Stack } from '@chakra-ui/react';
 
 const ProjectCard = ({ project }) => (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
-        <Image src={project.image} alt={project.title} boxSize="200px" objectFit="cover" />
+        {/* Adjusted Image for arbitrary dimensions */}
+        <Box height="200px" overflow="hidden">
+            <Image
+                src={project.image}
+                alt={project.title}
+                objectFit="cover"  // Ensures the image covers the container while maintaining aspect ratio
+                width="100%"
+                height="100%"
+            />
+        </Box>
 
         <Stack mt={4}>
             <Text fontWeight="bold" fontSize="xl">{project.title}</Text>
@@ -22,4 +31,3 @@ const ProjectCard = ({ project }) => (
 );
 
 export default ProjectCard;
-
