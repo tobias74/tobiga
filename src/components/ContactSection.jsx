@@ -27,10 +27,6 @@ const ContactSection = () => (
             </Flex>
         </Box>
 
-        {/* Copyright text, smaller and subtle */}
-        <Text fontSize="sm" color="gray.400">
-            &copy; {new Date().getFullYear()} Tobiga. All rights reserved.
-        </Text>
     </Flex>
 );
 
