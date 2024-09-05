@@ -1,18 +1,18 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import Navbar from './components/Navbar';
 import ProjectSection from './components/ProjectSection';
-import Footer from './components/Footer';
+import ContactSection from './components/ContactSection';
 
 function App() {
   return (
-    <Flex direction="column" minHeight="100vh">
+    <Flex direction="column" minHeight="100vh" minWidth="100vw" bg="gray.900" color="white">
       {/* Navbar for scroll-based navigation */}
       <Navbar />
 
       {/* Main content area */}
       <Box flex="1" mt="100px">
-        <Flex direction="column" align="center" maxWidth="800px" mx="auto" px={4}>
-
+        {/* Centered Content with maxWidth and spacing */}
+        <Flex direction="column" align="center" maxWidth="1200px" mx="auto" px={4}>
           {/* About Me Section */}
           <Box mb={10}>
             <Text fontSize="lg" textAlign="center">
@@ -31,8 +31,11 @@ function App() {
         </Flex>
       </Box>
 
-      {/* Sticky footer */}
-      <Footer />
+      {/* Contact Section */}
+      <Box id="contact" py={8} >
+        <ContactSection />
+      </Box>
+
     </Flex>
   );
 }
