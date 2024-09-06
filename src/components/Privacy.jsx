@@ -1,12 +1,16 @@
 import { Box, Text, Heading } from '@chakra-ui/react';
+import { LanguageContext } from '../context/LanguageContext';
+import { useContext } from 'react';
+import PrivacyDe from './privacy/PrivacyDe';
+import PrivacyEn from './privacy/PrivacyEn';
 
 const Privacy = () => {
+
+    const { currentLang } = useContext(LanguageContext);
+
     return (
         <Box maxWidth="800px" mx="auto" py={8} px={4}>
-            <Heading as="h1" size="xl" mb={6}>Privacy Policy</Heading>
-            <Text fontSize="lg">
-                This is the privacy policy page. You can include information about how user data is handled here.
-            </Text>
+            {currentLang === 'de' ? <PrivacyDe /> : <PrivacyEn />}
         </Box>
     );
 };
