@@ -6,6 +6,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
+import { FaGlobe } from 'react-icons/fa';
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -44,6 +45,22 @@ const Navbar = () => {
 
     return (
         <Box as="nav" position="fixed" top="0" right="0" zIndex="999" p={4}>
+
+            <Menu>
+                <MenuButton
+                    as={IconButton}
+                    icon={<FaGlobe />}
+                    aria-label="Change Language"
+                    variant="ghost"
+                    color="white"
+                    ml={2}  // Optional: Add some margin to space it out
+                />
+                <MenuList>
+                    <MenuItem onClick={() => handleLanguageChange('en')}>English</MenuItem>
+                    <MenuItem onClick={() => handleLanguageChange('de')}>Deutsch</MenuItem>
+                </MenuList>
+            </Menu>
+
             <IconButton icon={<HamburgerIcon />} aria-label="Open Menu" size="lg" onClick={onOpen} variant="ghost" color="white" />
 
             <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
@@ -59,16 +76,6 @@ const Navbar = () => {
                 </DrawerContent>
             </Drawer>
 
-            {/* Language Selector */}
-            <Menu>
-                <MenuButton as={Button} ml={4} colorScheme="teal">
-                    Language
-                </MenuButton>
-                <MenuList>
-                    <MenuItem onClick={() => handleLanguageChange('en')}>English</MenuItem>
-                    <MenuItem onClick={() => handleLanguageChange('de')}>Deutsch</MenuItem>
-                </MenuList>
-            </Menu>
         </Box>
     );
 };
