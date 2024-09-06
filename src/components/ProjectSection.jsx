@@ -1,6 +1,3 @@
-import { SimpleGrid, Box } from '@chakra-ui/react';
-import ProjectCard from './ProjectCard';
-
 const projects = [
     {
         title: 'CodeChef Companion',
@@ -39,14 +36,26 @@ const projects = [
     }
 ];
 
-const ProjectSection = () => (
-    <Box id="projects" mt={12}>
-        <SimpleGrid columns={[1, 2, 3]} spacing={10}>
-            {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} />
-            ))}
-        </SimpleGrid>
-    </Box>
-);
+import { SimpleGrid, Box, Heading, Text } from '@chakra-ui/react';
+import ProjectCard from './ProjectCard';
+import { useTranslation } from 'react-i18next';
+
+const ProjectSection = () => {
+    const { t } = useTranslation();
+
+    return (
+        <Box id="projects" mt={12} >
+            <Heading as="h2" size="xl" mb={6} textAlign="center">
+                {t('projects')}  {/* This uses the 'projects' key from the translation files */}
+            </Heading>
+            <SimpleGrid columns={[1, 2, 3]} spacing={10}>
+                {/* Example project data */}
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} project={project} />
+                ))}
+            </SimpleGrid>
+        </Box>
+    );
+};
 
 export default ProjectSection;
