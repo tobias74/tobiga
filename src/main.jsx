@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { I18nextProvider } from 'react-i18next';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -23,10 +23,26 @@ i18n
     }
   });
 
+
+// Custom color mode manager to prevent cookies/localStorage
+const noopStorageManager = {
+  get: () => 'dark', // Always return dark mode
+  set: () => { }      // No-op: Do nothing when setting mode
+};
+
+// Force dark mode only without storing the preference
+const config = {
+  initialColorMode: 'dark',
+  useSystemColorMode: false,
+};
+
+// Create a custom theme with this config
+const theme = extendTheme({ config });
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <I18nextProvider i18n={i18n}>
-      <ChakraProvider>
+      <ChakraProvider theme={theme} colorModeManager={noopStorageManager}>
         <App />
       </ChakraProvider>
     </I18nextProvider>
