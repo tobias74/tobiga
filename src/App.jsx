@@ -6,6 +6,7 @@ import Imprint from './components/Imprint';
 import Privacy from './components/Privacy';
 import Home from './components/Home';  // Import the Home component
 import { LanguageProvider } from './context/LanguageContext';
+import LanguageUpdater from './components/LanguageUpdater';
 
 function App() {
   return (
@@ -18,12 +19,21 @@ function App() {
             {/* Redirect root to English */}
             <Route path="/" element={<Navigate to="/en" />} />
 
-            {/* Dynamic Language Paths */}
-            <Route path="/:lang" element={<Home />} />
-            <Route path="/:lang/imprint" element={<Imprint />} />
-            <Route path="/:lang/privacy" element={<Privacy />} />
+            {/* Wrap all language-based routes with a route that includes LanguageUpdater */}
+            <Route
+              path="/:lang/*"
+              element={
+                <>
+                  <LanguageUpdater />  {/* Will update the language context */}
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="imprint" element={<Imprint />} />
+                    <Route path="privacy" element={<Privacy />} />
+                  </Routes>
+                </>
+              }
+            />
           </Routes>
-
           {/* Footer stays at the bottom */}
           <Box id="legal" width="100%" mt="auto">
             <FooterSection />

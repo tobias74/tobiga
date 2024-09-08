@@ -3,7 +3,7 @@ html {
 }
 
 html::-webkit-scrollbar {
-  display: none;
+  display: black;
 }
 
 body {
