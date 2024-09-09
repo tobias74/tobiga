@@ -17,6 +17,7 @@ i18n
     fallbackLng: 'en',            // Fallback language
     detection: {
       order: ['path', 'navigator'],  // Detect language via path or browser
+      caches: [],
     },
     backend: {
       loadPath: '/locales/{{lng}}/translation.json',  // Path to translation files
