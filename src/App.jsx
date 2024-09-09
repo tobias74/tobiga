@@ -13,7 +13,7 @@ function App() {
     <Router>
       <LanguageProvider>
         {/* Scroll to the correct hash when navigating */}
-        <Flex direction="column" minHeight="100vh" minWidth="100vw" bg="gray.900" color="white">
+        <Flex direction="column" minHeight="100vh" bg="gray.900" color="white">
           <Navbar />
           <Routes>
             {/* Redirect root to English */}
