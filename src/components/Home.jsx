@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Box, Heading, Text, Flex } from '@chakra-ui/react';
 import ProjectSection from '../components/ProjectSection';
 import ContactSection from '../components/ContactSection';
+import GithubContributionsSection from './GithubContributionsSection';
+import { Divider } from '@chakra-ui/react'; // Import Divider
 
 function ScrollToHashElement() {
     const location = useLocation();
@@ -45,6 +47,13 @@ const Home = () => {
 
                 {/* Project Section */}
                 <ProjectSection />
+
+                <Box mt={24} id="github-contributions" py={1} >
+                    <Heading as="h2" size="lg" mb={6} textAlign="center">
+                        {t('my-contributions')}
+                    </Heading>
+                    <GithubContributionsSection />
+                </Box>
 
                 <Box mb={10}></Box>
 

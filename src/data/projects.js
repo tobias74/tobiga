@@ -33,7 +33,7 @@ export const projects = [
         title: 'Text2Watts',
         description: {
             en: "An app that enables non-Bluetooth home trainers to transmit wattage data using the phone's camera and text recognition via Bluetooth.",
-            de: 'Eine App, die Heimtrainer ohne Bluetooth ermöglicht, Wattdaten über die Kamera des Telefons und Texterkennung per Bluetooth zu übertragen.'
+            de: 'Eine App, mit der Nutzer Wattzahlen von Heimtrainern ohne Bluetooth erfassen und mithilfe der Kamerafunktion und Texterkennung per Bluetooth übertragen können.'
         },
         tools: ['Kotlin', 'ML Kit', 'Bluetooth BLE'],
         link: 'https://play.google.com/store/apps/details?id=de.tobiga.text2watts',
@@ -43,7 +43,7 @@ export const projects = [
         title: 'Leukemia Images',
         description: {
             en: 'A platform providing leukemia-related images and presentations to support research and education in hematology.',
-            de: 'Eine Plattform mit Bildern und Präsentationen zu Leukämie zur Unterstützung von Forschung und Bildung in der Hämatologie.'
+            de: 'Eine Plattform mit Bildern und interaktiven Präsentationen zum Thema Leukämie.'
         },
         tools: ['React', 'Firebase', 'React MUI'],
         link: 'https://leukemia-images.com/',

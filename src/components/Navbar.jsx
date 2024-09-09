@@ -7,12 +7,14 @@ import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
 import { FaGlobe } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const location = useLocation();
     const navigate = useNavigate();
     const { currentLang, changeLanguage } = useContext(LanguageContext);
+    const { t, i18n } = useTranslation();
 
     // Function to change the language but keep the current path
     const handleLanguageChange = (newLang) => {
@@ -27,7 +29,7 @@ const Navbar = () => {
             return (
                 <RouterLink to={`/${currentLang}/#${section}`} onClick={onClose}>
                     <Text display="block" p={4} cursor="pointer">
-                        {section.charAt(0).toUpperCase() + section.slice(1)}
+                        {t(section)}
                     </Text>
                 </RouterLink>
             );
@@ -76,8 +78,9 @@ const Navbar = () => {
                     <DrawerCloseButton />
                     <DrawerBody>
                         {handleScrollLink('about')}
-                        {handleScrollLink('projects')}
                         {handleScrollLink('contact')}
+                        {handleScrollLink('projects')}
+                        {handleScrollLink('github-contributions')}
                         {handleScrollLink('legal')}
 
                         <RouterLink to={`/${currentLang}/imprint`} onClick={onClose}>
