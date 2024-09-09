@@ -24,6 +24,7 @@ const contributions = [
     */
 ];
 
+
 const GithubContributionsSection = () => (
     <Box id="contributions" mt={12} maxWidth="800px" mx="auto" px={4}> {/* Limit maxWidth to 800px */}
         <VStack spacing={6} align="stretch">
