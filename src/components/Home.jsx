@@ -46,6 +46,8 @@ const Home = () => {
                 {/* Project Section */}
                 <ProjectSection />
 
+                <Box mb={10}></Box>
+
             </Flex>
             <ScrollToHashElement />
         </Box>
