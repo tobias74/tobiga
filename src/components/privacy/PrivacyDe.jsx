@@ -3,8 +3,7 @@ const PrivacyDe = () => {
         <div>
             <h3>Diese Webseite wird auf <a href="https://www.ionos.de/" target="_blank">IONOS (www.ionos.de)</a> gehostet</h3>
             <p>
-                Datenschutzerklärung von IONOS:
-                <a target="_blank" href="https://www.ionos.de/terms-gtc/datenschutzerklaerung/">https://www.ionos.de/terms-gtc/datenschutzerklaerung/</a>
+                Datenschutzerklärung von IONOS: <a target="_blank" href="https://www.ionos.de/terms-gtc/datenschutzerklaerung/">https://www.ionos.de/terms-gtc/datenschutzerklaerung/</a>
             </p>
 
             <h4>Datenschutzerklärung</h4>
