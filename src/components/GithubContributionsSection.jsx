@@ -2,6 +2,7 @@
 import { Box, Text, Link, Stack, VStack } from '@chakra-ui/react';
 
 const contributions = [
+    /*
     {
         title: 'OpenAI GPT-3 Documentation',
         description: 'Improved the clarity of GPT-3 documentation, added better examples for developers, and corrected minor errors.',
@@ -20,7 +21,7 @@ const contributions = [
         repoLink: 'https://github.com/chakra-ui/chakra-ui',
         languages: ['TypeScript', 'JavaScript'],
     },
-    // Add more contributions here
+    */
 ];
 
 const GithubContributionsSection = () => (

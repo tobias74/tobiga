@@ -81,7 +81,6 @@ const Navbar = () => {
                         {handleScrollLink('contact')}
                         {handleScrollLink('projects')}
                         {handleScrollLink('github-contributions')}
-                        {handleScrollLink('legal')}
 
                         <RouterLink to={`/${currentLang}/imprint`} onClick={onClose}>
                             <Text display="block" p={4} cursor="pointer">
