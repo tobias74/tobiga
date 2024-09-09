@@ -28,10 +28,10 @@ const Home = () => {
 
 
     return (
-        <Box>
+        <Box id="about">
             {/* About Section */}
             <Flex direction="column" align="center" maxWidth="1200px" mx="auto" px={4} mt={12}>
-                <Box mb={0} id="about">
+                <Box mb={0} >
                     <Text fontSize="lg" textAlign="center" color="gray.400" letterSpacing="wide">
                         tobiga UG (haftungsbeschränkt)  {/* Refined and spaced out */}
                     </Text>
