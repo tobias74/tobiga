@@ -5,7 +5,7 @@ const Imprint = () => {
     const { t } = useTranslation();
 
     return (
-        <Box maxWidth="800px" width="100%" mx="auto" py={6} px={4}>
+        <Box maxWidth="800px" width="100%" my="40px" mx="auto" py={6} px={4}>
             {/* Title */}
             <Text fontSize="xl" fontWeight="bold" mb={4}>
                 {t('imprint-title')} {/* Imprint or Impressum */}

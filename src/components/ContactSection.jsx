@@ -15,13 +15,13 @@ const ContactSection = () => (
                 Get in Touch
             </Text>
             <Flex gap={6}>
-                <Link href="https://github.com/yourprofile" isExternal color="teal.300">
+                <Link href="https://github.com/tobias74" isExternal color="teal.300">
                     GitHub
                 </Link>
-                <Link href="https://linkedin.com/in/yourprofile" isExternal color="teal.300">
+                <Link href="https://www.linkedin.com/in/tobias-gassmann-01a99810/" isExternal color="teal.300">
                     LinkedIn
                 </Link>
-                <Link href="mailto:youremail@example.com" color="teal.300">
+                <Link href="mailto:tobias@gaszmann.de" color="teal.300">
                     Email
                 </Link>
             </Flex>

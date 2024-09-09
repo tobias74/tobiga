@@ -1,8 +1,9 @@
 {
   "welcome": "Welcome to our website!",
-  "projects": "My Projects",
+  "projects": "Projects",
   "privacy": "Privacy Policy",
   "imprint": "Imprint",
   "about": "I’m a software developer passionate about creating clean and scalable applications.",
-  "imprint-title": "Imprint"
+  "imprint-title": "Imprint",
+  "privacy-title": "Privacy Policy"
 }

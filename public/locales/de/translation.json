@@ -1,8 +1,9 @@
 {
   "welcome": "Willkommen auf unserer Webseite!",
-  "projects": "Meine Projekte",
+  "projects": "Projekte",
   "privacy": "Datenschutzerklärung",
   "imprint": "Impressum",
   "about": "Ich bin ein Softwareentwickler, der sich leidenschaftlich für die Erstellung sauberer und skalierbarer Anwendungen interessiert.",
-  "imprint-title": "Impressum"
+  "imprint-title": "Impressum",
+  "privacy-title": "Datenschutzerklärung"
 }

@@ -1,4 +1,4 @@
-import { Box, Image, Text, Link, Stack, useColorModeValue } from '@chakra-ui/react';
+import { Box, Image, Text, Link, Stack, useColorModeValue, Wrap, WrapItem } from '@chakra-ui/react';
 
 const ProjectCard = ({ project }) => {
     // Use Chakra's color mode-aware values to adjust colors for both light and dark themes
@@ -24,20 +24,21 @@ const ProjectCard = ({ project }) => {
                 <Link href={project.link} color="teal.500" isExternal>
                     View Project
                 </Link>
-                <Stack direction="row" spacing={2} mt={2}>
+                <Wrap spacing={2} mt={2}>
                     {project.tools.map((tool, idx) => (
-                        <Text
-                            key={idx}
-                            fontSize="sm"
-                            bg={tagBg}
-                            color={tagText}
-                            p={1}
-                            borderRadius="md"
-                        >
-                            {tool}
-                        </Text>
+                        <WrapItem key={idx}>
+                            <Text
+                                fontSize="sm"
+                                bg={tagBg}
+                                color={tagText}
+                                p={1}
+                                borderRadius="md"
+                            >
+                                {tool}
+                            </Text>
+                        </WrapItem>
                     ))}
-                </Stack>
+                </Wrap>
             </Stack>
         </Box>
     );

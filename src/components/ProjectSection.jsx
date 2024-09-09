@@ -1,31 +1,31 @@
 const projects = [
     {
-        title: 'CodeChef Companion',
-        description: 'A browser extension that provides real-time coding challenges from CodeChef and tracks your progress on the leaderboard. Perfect for competitive programming enthusiasts.',
-        tools: ['JavaScript', 'Browser APIs', 'React'],
-        link: 'https://example.com/codechef-companion',
-        image: 'https://picsum.photos/200/200',
+        title: 'drumuri.bike',
+        description: 'An interactive web application that integrates Google Maps and Street View with smart trainers to provide immersive virtual cycling experiences on real-world routes.',
+        tools: ['React', 'Firebase', 'Node.js', 'Three.js', 'Web Bluetooth'],
+        link: 'https://drumuri.bike',
+        image: '/images/drumuri-bike.png',
     },
     {
-        title: 'Mindful Meditation',
-        description: 'A meditation and mindfulness app designed to reduce stress and help users track their daily meditation habits. Includes a built-in journal and mood tracker.',
+        title: 'RFID Chat',
+        description: 'An experimental chat app that uses RFID tags as data storage, allowing users to write and store short messages directly on the tags. Messages can only be deleted with physical access to the tag, making it a unique and secure communication method.',
+        tools: ['Kotlin', 'NFC', 'Android Jetpack'],
+        link: 'https://play.google.com/store/apps/details?id=de.tobiga.rfidchat',
+        image: '/images/rfid-chat.png',
+    },
+    {
+        title: 'motionphoto.gallery',
+        description: 'An online tool that extracts videos from motion photos captured on smartphones, allowing users to easily retrieve and use the video portion from their motion images.',
         tools: ['React Native', 'Redux', 'Firebase'],
-        link: 'https://example.com/mindful-meditation',
-        image: 'https://picsum.photos/200/200',
+        link: 'https://motionphoto.gallery',
+        image: '/images/motionphoto-gallery.png',
     },
     {
-        title: 'CryptoTracker Pro',
-        description: 'An advanced cryptocurrency dashboard that provides real-time updates, charts, and price alerts. Customize your watchlist and set price alerts for your favorite coins.',
-        tools: ['Node.js', 'Express', 'WebSockets'],
-        link: 'https://example.com/cryptotracker-pro',
-        image: 'https://picsum.photos/200/200',
-    },
-    {
-        title: 'Artify - AI Art Generator',
-        description: 'Generate beautiful artwork using AI and deep learning models. Upload your photos and turn them into art pieces that look like they were painted by Van Gogh or Picasso.',
-        tools: ['Python', 'TensorFlow', 'React'],
-        link: 'https://example.com/artify-ai',
-        image: 'https://picsum.photos/200/200',
+        title: 'Text2Watts',
+        description: "An app that enables home trainers without Bluetooth to transmit wattage data via Bluetooth by using the phone's camera and text recognition. It reads and relays wattage from the trainer’s display for integration with virtual cycling apps.",
+        tools: ['Kotlin', 'ML Kit', 'Bluetooth BLE'],
+        link: 'https://play.google.com/store/apps/details?id=de.tobiga.text2watts',
+        image: '/images/text2watts.png',
     },
     {
         title: 'Travel Guru',
@@ -45,8 +45,8 @@ const ProjectSection = () => {
 
     return (
         <Box id="projects" mt={12} >
-            <Heading as="h2" size="xl" mb={6} textAlign="center">
-                {t('projects')}  {/* This uses the 'projects' key from the translation files */}
+            <Heading as="h2" size="lg" mb={6} textAlign="center">
+                {t('projects')}
             </Heading>
             <SimpleGrid columns={[1, 2, 3]} spacing={10}>
                 {/* Example project data */}

@@ -30,8 +30,11 @@ const Home = () => {
             {/* About Section */}
             <Flex direction="column" align="center" maxWidth="1200px" mx="auto" px={4} mt={12}>
                 <Box mb={6}>
-                    <Text fontSize="lg" textAlign="center">
-                        {t('about')}  {/* Use translation for about text */}
+                    <Text fontSize="lg" textAlign="center" color="gray.400" letterSpacing="wide">
+                        tobiga UG (haftungsbeschränkt)  {/* Refined and spaced out */}
+                    </Text>
+                    <Text fontSize="lg" fontWeight="medium" textAlign="center" mt={2} color="gray.100">
+                        Tobias Gassmann  {/* Softer and more subtle */}
                     </Text>
                 </Box>
 
