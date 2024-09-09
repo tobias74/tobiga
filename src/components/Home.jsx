@@ -22,14 +22,8 @@ function ScrollToHashElement() {
 
 const Home = () => {
     const { lang } = useParams();  // Get the current language from the URL
-    const { i18n, t } = useTranslation();  // Use translation hook
+    const { t } = useTranslation();  // Use translation hook
 
-    // Change language based on URL param
-    useEffect(() => {
-        if (lang) {
-            i18n.changeLanguage(lang);
-        }
-    }, [lang, i18n]);
 
     return (
         <Box>

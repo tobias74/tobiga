@@ -1,5 +1,5 @@
 import {
-    Box, IconButton, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerBody, Text, Menu, MenuButton, MenuItem, MenuList, Button
+    Box, IconButton, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerBody, Text, Menu, MenuButton, MenuItem, MenuList
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { Link as ScrollLink } from 'react-scroll';
@@ -61,7 +61,14 @@ const Navbar = () => {
                 </MenuList>
             </Menu>
 
-            <IconButton icon={<HamburgerIcon />} aria-label="Open Menu" size="lg" onClick={onOpen} variant="ghost" color="white" />
+            <IconButton
+                icon={<HamburgerIcon />}
+                aria-label="Open Menu"
+                size="lg"
+                onClick={onOpen}
+                variant="ghost"
+                color="white"
+            />
 
             <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
@@ -72,6 +79,17 @@ const Navbar = () => {
                         {handleScrollLink('projects')}
                         {handleScrollLink('contact')}
                         {handleScrollLink('legal')}
+
+                        <RouterLink to={`/${currentLang}/imprint`} onClick={onClose}>
+                            <Text display="block" p={4} cursor="pointer">
+                                {currentLang === 'en' ? 'Imprint' : 'Impressum'}
+                            </Text>
+                        </RouterLink>
+                        <RouterLink to={`/${currentLang}/privacy`} onClick={onClose}>
+                            <Text display="block" p={4} cursor="pointer">
+                                {currentLang === 'en' ? 'Privacy Policy' : 'Datenschutz'}
+                            </Text>
+                        </RouterLink>
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
