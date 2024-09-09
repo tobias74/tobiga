@@ -29,7 +29,7 @@ const Home = () => {
         <Box>
             {/* About Section */}
             <Flex direction="column" align="center" maxWidth="1200px" mx="auto" px={4} mt={12}>
-                <Box mb={6}>
+                <Box mb={0}>
                     <Text fontSize="lg" textAlign="center" color="gray.400" letterSpacing="wide">
                         tobiga UG (haftungsbeschränkt)  {/* Refined and spaced out */}
                     </Text>
@@ -38,13 +38,14 @@ const Home = () => {
                     </Text>
                 </Box>
 
+                {/* Contact Section */}
+                <Box id="contact" py={1}>
+                    <ContactSection />
+                </Box>
+
                 {/* Project Section */}
                 <ProjectSection />
 
-                {/* Contact Section */}
-                <Box id="contact" py={12}>
-                    <ContactSection />
-                </Box>
             </Flex>
             <ScrollToHashElement />
         </Box>

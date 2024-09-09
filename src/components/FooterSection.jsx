@@ -20,7 +20,7 @@ const FooterSection = () => {
             </Box>
 
             <Text fontSize="sm" color="gray.400">
-                &copy; {new Date().getFullYear()} Your Website Name. All rights reserved.
+                &copy; {new Date().getFullYear()} tobiga UG (haftungsbeschränkt)
             </Text>
         </Flex>
     );

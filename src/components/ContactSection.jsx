@@ -10,10 +10,7 @@ const ContactSection = () => (
         textAlign="center"
     >
         {/* Contact Links */}
-        <Box mb={6}>
-            <Text fontSize="2xl" mb={4}>
-                Get in Touch
-            </Text>
+        <Box >
             <Flex gap={6}>
                 <Link href="https://github.com/tobias74" isExternal color="teal.300">
                     GitHub
