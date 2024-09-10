@@ -4,7 +4,9 @@
     "watch-handlebars": "node watch.js"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "fs-extra": "^11.2.0",
+    "nodemon": "^2.0.15",
+    "sass": "^1.78.0"
   },
   "dependencies": {
     "handlebars": "^4.7.8"

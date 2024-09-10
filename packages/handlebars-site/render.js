@@ -1,17 +1,38 @@
 const fs = require('fs');
 const path = require('path');
 const Handlebars = require('handlebars');
+const sass = require('sass'); // Import Sass
 
-// Define paths for templates, partials, and output directory
+// Define paths for templates, partials, SCSS, and output directory
 const templatesDir = path.join(__dirname, 'templates');
 const partialsDir = path.join(templatesDir, 'partials');
 const pagesDir = path.join(templatesDir, 'pages');
+const scssDir = path.join(__dirname, 'scss');  // Path to SCSS folder
 const outputDir = path.join(__dirname, 'dist');
 
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
 }
+
+// Ensure CSS directory exists in output
+const outputCssDir = path.join(outputDir, 'css');
+if (!fs.existsSync(outputCssDir)) {
+    fs.mkdirSync(outputCssDir, { recursive: true });
+}
+
+// Compile SCSS to CSS and output to dist/css/
+fs.readdirSync(scssDir).forEach((file) => {
+    if (path.extname(file) === '.scss') {
+        const scssFile = path.join(scssDir, file);
+        const cssOutputFile = path.join(outputCssDir, `${path.basename(file, '.scss')}.css`);
+
+        // Compile SCSS to CSS
+        const result = sass.renderSync({ file: scssFile });
+        fs.writeFileSync(cssOutputFile, result.css);
+        console.log(`Compiled SCSS: ${file} to ${cssOutputFile}`);
+    }
+});
 
 // Register all partials from the partials directory
 fs.readdirSync(partialsDir).forEach((file) => {
@@ -48,4 +69,4 @@ fs.readdirSync(pagesDir).forEach((file) => {
     }
 });
 
-console.log('Handlebars templates compiled successfully.');
+console.log('Handlebars templates and SCSS compiled successfully.');

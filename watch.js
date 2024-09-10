@@ -4,7 +4,7 @@ const nodemon = require('nodemon');
 // Configure nodemon to watch the Handlebars template files
 nodemon({
     script: 'build.js', // Placeholder script for nodemon
-    ext: 'hbs js json', // File extensions to watch
+    ext: 'hbs js json scss', // File extensions to watch
     watch: ['packages/handlebars-site/templates'], // Watch the Handlebars templates folder
     exec: 'node -e "require(\'./build.js\').buildHandlebarsAndCopy()"', // Command to run on changes
 });
