@@ -1,21 +1,40 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{pageTitle}}</title>
-  <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-  {{> header }}  <!-- Include the header partial -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tobiga UG (haftungsbeschränkt)</title>
+    <link href="/static/css/main.css" rel="stylesheet" />
+  </head>
+  <body class="bg-white text-gray-900">
 
-  <main>
-    here tobiasssss2223456:<br><br><br><br><br><br><br><br><br><br><br>
-    {{{body}}}   <!-- Placeholder for page-specific content -->
-  </main>
+    <!-- Header -->
+    <header class="w-full py-4 border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
 
-  <hr />
+        <!-- Company Name -->
+        <h1 class="text-lg font-light">
+          tobiga UG (haftungsbeschränkt)
+        </h1>
 
-  {{> footer }}  <!-- Optionally include a footer partial -->
-</body>
+        <!-- Home Link -->
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900">
+            Home
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+      <!-- Your legal content will go here -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Legal Documents</h2>
+        <p class="text-base leading-relaxed">
+          <!-- Insert legal document content here -->
+        </p>
+      </section>
+    </main>
+
+  </body>
 </html>
