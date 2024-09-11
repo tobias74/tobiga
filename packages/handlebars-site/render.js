@@ -3,8 +3,9 @@ const path = require('path');
 const Handlebars = require('handlebars');
 const sass = require('sass'); // Import Sass
 
-// Define paths for templates, partials, SCSS, and output directory
+// Define paths for templates, layouts, partials, SCSS, and output directory
 const templatesDir = path.join(__dirname, 'templates');
+const layoutsDir = path.join(templatesDir, 'layouts');  // Define layouts directory
 const partialsDir = path.join(templatesDir, 'partials');
 const pagesDir = path.join(templatesDir, 'pages');
 const scssDir = path.join(__dirname, 'scss');  // Path to SCSS folder
@@ -42,6 +43,14 @@ fs.readdirSync(partialsDir).forEach((file) => {
         Handlebars.registerPartial(partialName, partialTemplate);
         console.log(`Registered partial: ${partialName}`);
     }
+});
+
+// Register a custom helper to dynamically load and compile layouts
+Handlebars.registerHelper('dynamicLayout', function (layoutName, options) {
+    const layoutPath = path.join(layoutsDir, `${layoutName}.hbs`);
+    const layoutTemplate = fs.readFileSync(layoutPath, 'utf8');
+    const compiledLayout = Handlebars.compile(layoutTemplate);
+    return compiledLayout({ ...this, body: options.fn(this) }); // Merge content into the body
 });
 
 // Sample global data (optional)

@@ -4,9 +4,13 @@
   "description": "Static site generator using Handlebars",
   "main": "render.js",
   "scripts": {
-    "build": "node render.js"
+    "build": "node render.js && node build-scss.js",
+    "watch": "nodemon --watch templates --watch scss --ext hbs,scss --exec npm run build"
   },
-  "dependencies": {
-    "handlebars": "^4.7.7"
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "handlebars": "^4.7.7",
+    "nodemon": "^3.1.4",
+    "sass": "^1.78.0"
   }
 }
