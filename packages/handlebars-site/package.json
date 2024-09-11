@@ -8,9 +8,15 @@
     "watch": "nodemon --watch templates --watch scss --ext hbs,scss --exec npm run build"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
     "fs-extra": "^11.2.0",
     "handlebars": "^4.7.8",
     "nodemon": "^3.1.4",
-    "sass": "^1.78.0"
+    "postcss": "^8.4.45",
+    "sass": "^1.78.0",
+    "tailwindcss": "^3.4.10"
+  },
+  "dependencies": {
+    "handlebars-site": "file:"
   }
 }

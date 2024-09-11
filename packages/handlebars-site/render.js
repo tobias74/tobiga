@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const Handlebars = require('handlebars');
 const sass = require('sass'); // Import Sass
+const postcss = require('postcss');
+const tailwindcss = require('tailwindcss');
+const autoprefixer = require('autoprefixer');
 
 // Define paths for templates, layouts, partials, SCSS, and output directory
 const templatesDir = path.join(__dirname, 'templates');
@@ -30,8 +33,17 @@ fs.readdirSync(scssDir).forEach((file) => {
 
         // Compile SCSS to CSS
         const result = sass.renderSync({ file: scssFile });
-        fs.writeFileSync(cssOutputFile, result.css);
-        console.log(`Compiled SCSS: ${file} to ${cssOutputFile}`);
+
+        // Process CSS with PostCSS (Tailwind and Autoprefixer)
+        postcss([tailwindcss, autoprefixer])
+            .process(result.css, { from: undefined })
+            .then((output) => {
+                fs.writeFileSync(cssOutputFile, output.css);
+                console.log(`Compiled SCSS + Tailwind: ${file} to ${cssOutputFile}`);
+            })
+            .catch((err) => {
+                console.error(`Error processing CSS with Tailwind: ${err}`);
+            });
     }
 });
 
