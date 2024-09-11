@@ -6,13 +6,17 @@ const postcss = require('postcss');
 const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
 
-// Define paths for templates, layouts, partials, SCSS, and output directory
+// Define paths for templates, layouts, partials, SCSS, locales, and output directory
 const templatesDir = path.join(__dirname, 'templates');
 const layoutsDir = path.join(templatesDir, 'layouts');  // Define layouts directory
 const partialsDir = path.join(templatesDir, 'partials');
 const pagesDir = path.join(templatesDir, 'pages');
 const scssDir = path.join(__dirname, 'scss');  // Path to SCSS folder
+const localesDir = path.join(__dirname, 'locales'); // Path to locales folder
 const outputDir = path.join(__dirname, 'dist');
+
+// Define supported languages
+const languages = ['en', 'de']; // Add any additional languages here (e.g., 'fr', 'es')
 
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
@@ -71,22 +75,40 @@ const globalData = {
     year: new Date().getFullYear(),
 };
 
-// Function to compile and write HTML
-const compileTemplate = (templatePath, outputFile, data = {}) => {
+// Function to compile and write HTML for each language
+const compileTemplateForLanguage = (templatePath, outputFile, localeData, lang) => {
     const templateSource = fs.readFileSync(templatePath, 'utf8');
     const template = Handlebars.compile(templateSource);
 
-    const result = template({ ...globalData, ...data });
+    const result = template({ ...globalData, ...localeData, lang });
     fs.writeFileSync(outputFile, result, 'utf8');
     console.log(`Generated: ${outputFile}`);
 };
 
-// Compile all .hbs files in the pages directory
+// Compile all .hbs files in the pages directory for each language
 fs.readdirSync(pagesDir).forEach((file) => {
     if (path.extname(file) === '.hbs') {
         const templatePath = path.join(pagesDir, file);
-        const outputFile = path.join(outputDir, `${path.basename(file, '.hbs')}.html`);
-        compileTemplate(templatePath, outputFile);
+
+        // Loop through each language
+        languages.forEach((lang) => {
+            const localeFile = path.join(localesDir, `${lang}.json`);
+            if (fs.existsSync(localeFile)) {
+                const localeData = JSON.parse(fs.readFileSync(localeFile, 'utf8'));
+                const outputFile = path.join(outputDir, `${lang}/${path.basename(file, '.hbs')}.html`);
+
+                // Ensure the language-specific output directory exists
+                const langOutputDir = path.join(outputDir, lang);
+                if (!fs.existsSync(langOutputDir)) {
+                    fs.mkdirSync(langOutputDir, { recursive: true });
+                }
+
+                // Compile the template with the locale data
+                compileTemplateForLanguage(templatePath, outputFile, localeData, lang);
+            } else {
+                console.error(`Locale file not found for language: ${lang}`);
+            }
+        });
     }
 });
 
