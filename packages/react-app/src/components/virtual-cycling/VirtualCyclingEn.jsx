@@ -1,10 +1,6 @@
-import { Box, Text } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
-import './page-styles.scss';
+import { Box, Text, Heading } from '@chakra-ui/react';
 
-const VirtualCyclingInStreetView = () => {
-    const { t } = useTranslation();
-
+export const VirtualCyclingEn = () => {
     return (
         <Box maxWidth="800px" width="100%" my="40px" mx="auto" py={6} px={4} className="drumuri-article">
             {/* Title */}
@@ -26,5 +22,3 @@ const VirtualCyclingInStreetView = () => {
         </Box>
     );
 };
-
-export default VirtualCyclingInStreetView;
