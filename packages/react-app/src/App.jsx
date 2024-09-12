@@ -7,10 +7,6 @@ import Privacy from './components/Privacy';
 import Home from './components/Home';  // Import the Home component
 import { LanguageProvider } from './context/LanguageContext';
 import LanguageUpdater from './components/LanguageUpdater';
-import { PrivacyPolicyRfidChat } from './components/hosted/PrivacyPolicyRfidChat';
-import { DatenschutzerklaerungRfidChat } from './components/hosted/DatenschutzerklaerungRfidChat';
-import { PrivacyPolicyText2Watts } from './components/hosted/PrivacyPolicyText2Watts';
-import { DatenschutzerklaerungText2Watts } from './components/hosted/DatenschutzerklaerungText2Watts';
 import VirtualCyclingInStreetView from './components/hosted/VirtualCyclingInStreetView';
 
 function App() {
@@ -21,12 +17,6 @@ function App() {
         <Flex direction="column" minHeight="100vh" bg="gray.900" color="white">
           <Navbar />
           <Routes>
-
-            <Route path="/privacy-policy-rfid-chat" element={<PrivacyPolicyRfidChat />} />
-            <Route path="/datenschutzerklaerung-rfid-chat" element={<DatenschutzerklaerungRfidChat />} />
-
-            <Route path="/privacy-policy-text2watts" element={<PrivacyPolicyText2Watts />} />
-            <Route path="/datenschutzerklaerung-text2watts" element={<DatenschutzerklaerungText2Watts />} />
 
             <Route path="/virtual-cycling-in-street-view" element={<VirtualCyclingInStreetView />} />
 

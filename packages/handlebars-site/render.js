@@ -69,6 +69,14 @@ Handlebars.registerHelper('dynamicLayout', function (layoutName, options) {
     return compiledLayout({ ...this, body: options.fn(this) }); // Merge content into the body
 });
 
+Handlebars.registerHelper('equals', function (a, b, options) {
+    if (a === b) {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+});
+
 // Sample global data (optional)
 const globalData = {
     siteName: 'My Website',
