@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-all": "npm run build-handlebars && npm run build-react",
+    "build-all": "npm run build-handlebars-copy && npm run build-react",
     "build-handlebars": "npm --prefix packages/handlebars-site run build",
     "build-react": "npm --prefix packages/react-app run build",
     "dev": "concurrently \"npm run dev-react\" \"npm run watch-handlebars\" \"npm run watch-copy-output\"",
