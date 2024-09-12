@@ -6,7 +6,7 @@ export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
     const { i18n } = useTranslation();  // Get the i18n instance to change the language
-    const [currentLang, setCurrentLang] = useState('en');  // Default to English
+    const [currentLang, setCurrentLang] = useState();
 
     // Function to manually change the language
     const changeLanguage = (newLang) => {

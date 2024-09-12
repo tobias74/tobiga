@@ -18,13 +18,24 @@ const LocaleRedirect = ({ children }) => {
 
   // Extract the first part of the path
   const pathParts = location.pathname.split('/').filter(Boolean); // Remove empty segments
-
   const firstPart = pathParts[0]; // This will be the locale if present
 
   // Check if the first part is a valid locale
   if (!VALID_LANGUAGES.includes(firstPart)) {
-    // Redirect to the same path but with /en prepended
-    return <Navigate to={`/en${location.pathname}`} replace />;
+    // Analyze the current domain
+    const domain = window.location.hostname;
+
+    let defaultLocale = 'en'; // Default to English if no domain-specific locale is found
+
+    // Check domain ending
+    if (domain.endsWith('.de')) {
+      defaultLocale = 'de'; // Set to German if domain ends with .de
+    } else if (domain.endsWith('.com')) {
+      defaultLocale = 'en'; // Set to English if domain ends with .com
+    }
+
+    // Redirect to the same path but with the appropriate locale prepended
+    return <Navigate to={`/${defaultLocale}${location.pathname}`} replace />;
   }
 
   // If the locale is valid, render the children (the actual routes)
