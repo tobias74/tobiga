@@ -66,6 +66,7 @@ function App() {
                             <Route path="/" element={<Home />} />
                             <Route path="imprint" element={<Imprint />} />
                             <Route path="privacy" element={<Privacy />} />
+                            <Route path="datenschutzerklaerung" element={<Privacy />} />
                             <Route path="virtual-cycling-in-street-view" element={<VirtualCyclingInStreetView />} />
                           </Routes>
                         </>
