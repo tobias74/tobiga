@@ -76,11 +76,11 @@ const globalData = {
 };
 
 // Function to compile and write HTML for each language
-const compileTemplateForLanguage = (templatePath, outputFile, localeData, lang) => {
+const compileTemplateForLanguage = (templatePath, outputFile, localeData, lang, currentPage) => {
     const templateSource = fs.readFileSync(templatePath, 'utf8');
     const template = Handlebars.compile(templateSource);
 
-    const result = template({ ...globalData, ...localeData, lang });
+    const result = template({ ...globalData, ...localeData, lang, currentPage });
     fs.writeFileSync(outputFile, result, 'utf8');
     console.log(`Generated: ${outputFile}`);
 };
@@ -89,13 +89,14 @@ const compileTemplateForLanguage = (templatePath, outputFile, localeData, lang) 
 fs.readdirSync(pagesDir).forEach((file) => {
     if (path.extname(file) === '.hbs') {
         const templatePath = path.join(pagesDir, file);
+        const currentPage = path.basename(file, '.hbs') + '.html'; // Get the page name (e.g., "imprint", "privacy")
 
         // Loop through each language
         languages.forEach((lang) => {
             const localeFile = path.join(localesDir, `${lang}.json`);
             if (fs.existsSync(localeFile)) {
                 const localeData = JSON.parse(fs.readFileSync(localeFile, 'utf8'));
-                const outputFile = path.join(outputDir, `${lang}/${path.basename(file, '.hbs')}.html`);
+                const outputFile = path.join(outputDir, `${lang}/${currentPage}`);
 
                 // Ensure the language-specific output directory exists
                 const langOutputDir = path.join(outputDir, lang);
@@ -103,8 +104,8 @@ fs.readdirSync(pagesDir).forEach((file) => {
                     fs.mkdirSync(langOutputDir, { recursive: true });
                 }
 
-                // Compile the template with the locale data
-                compileTemplateForLanguage(templatePath, outputFile, localeData, lang);
+                // Compile the template with the locale data and current page
+                compileTemplateForLanguage(templatePath, outputFile, localeData, lang, currentPage);
             } else {
                 console.error(`Locale file not found for language: ${lang}`);
             }
@@ -112,4 +113,4 @@ fs.readdirSync(pagesDir).forEach((file) => {
     }
 });
 
-console.log('Handlebars templates and SCSS compiled successfully.');
+console.log('Handlebars templates and SCSS compiled successfully!');
