@@ -7,7 +7,7 @@
     "dev-react": "npm --prefix packages/react-app run dev",
     "watch-handlebars": "npm --prefix packages/handlebars-site run watch",
     "watch-copy-output": "nodemon --watch packages/handlebars-site/dist --ext html,css --exec \"npm run copy-handlebars-output\" ",
-    "copy-handlebars-output": "cp -R packages/handlebars-site/dist/* packages/react-app/public/static/",
+    "copy-handlebars-output": "mkdir -p packages/react-app/public/static && cp -R packages/handlebars-site/dist/* packages/react-app/public/static/",
     "build-handlebars-copy": "npm run build-handlebars && npm run copy-handlebars-output"
   },
   "devDependencies": {
