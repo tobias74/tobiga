@@ -10,7 +10,7 @@ import VirtualCyclingInStreetView from './components/VirtualCyclingInStreetView'
 import { LanguageProvider } from './context/LanguageContext';
 import LanguageUpdater from './components/LanguageUpdater';
 
-const VALID_LANGUAGES = ['en', 'de'];  // Add supported languages here
+const VALID_LANGUAGES = ['en', 'de', 'static'];  // Add supported languages here
 
 // Component to handle the redirect if locale is missing
 const LocaleRedirect = ({ children }) => {
