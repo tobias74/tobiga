@@ -14,13 +14,16 @@ const ProjectCard = ({ project }) => {
         <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
             {/* Adjusted Image for arbitrary dimensions */}
             <Box height="200px" overflow="hidden">
-                <Image
-                    src={project.image}
-                    alt={project.title}
-                    objectFit="cover"  // Ensures the image covers the container while maintaining aspect ratio
-                    width="100%"
-                    height="100%"
-                />
+                <Link href={project.link} isExternal>
+                    <Image
+                        src={project.image}
+                        alt={project.title}
+                        objectFit="cover"  // Ensures the image covers the container while maintaining aspect ratio
+                        width="100%"
+                        height="100%"
+                    />
+                </Link>
+
             </Box>
 
             <Stack mt={4}>
@@ -48,7 +51,7 @@ const ProjectCard = ({ project }) => {
                     ))}
                 </Wrap>
             </Stack>
-        </Box>
+        </Box >
     );
 };
 

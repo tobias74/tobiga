@@ -24,7 +24,7 @@ const GithubContributionsSection = () => {
                             ))}
                         </Stack>
                         <Link href={contribution.repoLink} color="teal.500" isExternal>
-                            View Repository
+                            {contribution.repoLink}
                         </Link>
                     </Box>
                 ))}
