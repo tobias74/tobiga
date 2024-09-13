@@ -16,6 +16,13 @@ const Privacy = () => {
         console.log("Current language is:", currentLang);  // Log to see the current language
     }, [currentLang]);
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'auto', // Instant jump (default behavior)
+        });
+    }, []);
+
     return (
         <Box maxWidth="800px" mx="auto" py={6} px={4} className="privacy-container">
             <Text fontSize="xl" fontWeight="bold" mb={4}>

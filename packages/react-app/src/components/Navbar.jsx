@@ -2,7 +2,6 @@ import {
     Box, IconButton, useDisclosure, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerBody, Text, Menu, MenuButton, MenuItem, MenuList
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { LanguageContext } from '../context/LanguageContext';
@@ -10,20 +9,19 @@ import { FaGlobe } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
-
     console.log('Rendering Navbar');
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const location = useLocation();
     const navigate = useNavigate();
     const { currentLang, changeLanguage } = useContext(LanguageContext);
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     // Function to change the language but keep the current path
     const handleLanguageChange = (newLang) => {
-        const currentPath = location.pathname.replace(`/${currentLang}`, `/${newLang}`);  // Replace the current language in the path with the new language
-        changeLanguage(newLang);  // Update the context value (if necessary)
-        navigate(currentPath);  // Navigate to the same path but in the new language
+        const currentPath = location.pathname.replace(`/${currentLang}`, `/${newLang}`);
+        changeLanguage(newLang);
+        navigate(currentPath);
     };
 
     const createAnchorLink = (section) => {
@@ -37,8 +35,21 @@ const Navbar = () => {
     };
 
     return (
-        <Box as="nav" position="fixed" top="0" right="0" zIndex="999" m={3} p={1}>
-
+        <Box
+            as="nav"
+            position="fixed" // Make the Navbar fixed at the top
+            top="0"
+            width="100%"
+            zIndex="999"
+            bg="gray.800" // Set a background color to distinguish it from content
+            p={3}
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            borderBottom="1px solid"
+            borderColor="gray.700"
+        >
+            {/* Left Section: Language Menu */}
             <Menu>
                 <MenuButton
                     as={IconButton}
@@ -46,7 +57,6 @@ const Navbar = () => {
                     aria-label="Change Language"
                     variant="ghost"
                     color="white"
-                    ml={2}  // Optional: Add some margin to space it out
                 />
                 <MenuList>
                     <MenuItem onClick={() => handleLanguageChange('en')}>English</MenuItem>
@@ -54,6 +64,17 @@ const Navbar = () => {
                 </MenuList>
             </Menu>
 
+            {/* Center Section: Company Info */}
+            <Box mb={0} textAlign="center">
+                <Text fontSize={{ base: "md", md: "lg" }} color="gray.400" letterSpacing="wide">
+                    tobiga UG (haftungsbeschränkt)
+                </Text>
+                <Text fontSize={{ base: "md", md: "lg" }} fontWeight="medium" mt={1} color="gray.100">
+                    Tobias Gassmann
+                </Text>
+            </Box>
+
+            {/* Right Section: Hamburger Menu */}
             <IconButton
                 icon={<HamburgerIcon />}
                 aria-label="Open Menu"
@@ -63,6 +84,7 @@ const Navbar = () => {
                 color="white"
             />
 
+            {/* Drawer Menu */}
             <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
                 <DrawerContent>
@@ -87,7 +109,6 @@ const Navbar = () => {
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>
-
         </Box>
     );
 };

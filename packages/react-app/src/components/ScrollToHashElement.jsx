@@ -18,13 +18,13 @@ function ScrollToHashElement() {
                 if (Math.abs(targetPosition) <= 0) {
                     // If the distance is less than or equal to 500px, smoothly scroll to the element
                     window.scrollTo({
-                        top: currentPosition + targetPosition,
+                        top: currentPosition + targetPosition - 70,
                         behavior: 'smooth', // Smooth scroll
                     });
                 } else {
                     // If the distance is greater than 500px, jump instantly
                     window.scrollTo({
-                        top: currentPosition + targetPosition,
+                        top: currentPosition + targetPosition - 70,
                         behavior: 'auto', // Instant jump (default behavior)
                     });
                 }

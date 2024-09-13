@@ -50,7 +50,7 @@ function App() {
       <LanguageProvider>
         <Flex direction="column" minHeight="100vh" bg="gray.900" color="white">
           <Navbar />
-
+          <Box mt={10} />
           <Routes>
             {/* If no language is specified, redirect to default locale (e.g., /en/) */}
             <Route
