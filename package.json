@@ -6,12 +6,15 @@
     "dev": "concurrently \"npm run dev-react\" \"npm run watch-handlebars\" \"npm run watch-copy-output\"",
     "dev-react": "npm --prefix packages/react-app run dev",
     "watch-handlebars": "npm --prefix packages/handlebars-site run watch",
-    "watch-copy-output": "nodemon --watch packages/handlebars-site/dist --ext html,css --exec \"npm run copy-handlebars-output\" ",
-    "copy-handlebars-output": "mkdir -p packages/react-app/public/static && cp -R packages/handlebars-site/dist/* packages/react-app/public/static/",
+    "watch-copy-output": "nodemon --watch packages/handlebars-site/dist --ext html,css --exec \"npm run copy-handlebars-output\"",
+    "create-output-dir": "shx mkdir -p packages/react-app/public/static",
+    "copy-output-files": "shx cp -R packages/handlebars-site/dist/* packages/react-app/public/static/",
+    "copy-handlebars-output": "npm run create-output-dir && npm run copy-output-files",
     "build-handlebars-copy": "npm run build-handlebars && npm run copy-handlebars-output"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "shx": "^0.3.4"
   }
 }
