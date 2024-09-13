@@ -8,10 +8,10 @@ const ProjectSection = () => {
     const { t } = useTranslation();
 
     return (
-        <Box id="projects" >
-            <Heading as="h2" size="lg" mb={6} textAlign="center">
+        <Box mt={12}>
+            <Text fontSize="2xl" fontWeight="bold" mb={6} textAlign="center">
                 {t('projects')}
-            </Heading>
+            </Text>
             <SimpleGrid columns={[1, 2, 3]} spacing={10}>
                 {/* Example project data */}
                 {projects.map((project, index) => (

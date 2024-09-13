@@ -1,12 +1,17 @@
-import { Box, Text, Link, Stack, VStack } from '@chakra-ui/react';
+import { Box, Text, Link, Stack, VStack, Heading } from '@chakra-ui/react';
+
 import { useTranslation } from 'react-i18next';
 import { GithubContributions } from '../data/github-contributions';
 
 const GithubContributionsSection = () => {
-    const { i18n } = useTranslation(); // Get the current language
+    const { i18n, t } = useTranslation(); // Get the current language
 
     return (
-        <Box id="contributions" mt={12} maxWidth="800px" mx="auto" px={4}> {/* Limit maxWidth to 800px */}
+        <Box id="contributions" mt={12} maxWidth="800px" width="100%" mx="auto" px={4}> {/* Limit maxWidth to 800px */}
+            <Text fontSize="2xl" fontWeight="bold" mb={6} textAlign="center">
+                {t('my-contributions')}
+            </Text>
+
             <VStack spacing={6} align="stretch">
                 {GithubContributions.map((contribution, index) => (
                     <Box key={index} borderWidth="1px" borderRadius="lg" p={5} bg="gray.800" color="white">

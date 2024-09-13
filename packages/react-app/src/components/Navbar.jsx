@@ -10,6 +10,9 @@ import { FaGlobe } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
+
+    console.log('Rendering Navbar');
+
     const { isOpen, onOpen, onClose } = useDisclosure();
     const location = useLocation();
     const navigate = useNavigate();
@@ -23,30 +26,18 @@ const Navbar = () => {
         navigate(currentPath);  // Navigate to the same path but in the new language
     };
 
-    const handleScrollLink = (section) => {
-        if (location.pathname !== `/${currentLang}`) {
-            // If not on the home page, navigate to the home page with hash
-            return (
-                <RouterLink to={`/${currentLang}/#${section}`} onClick={onClose}>
-                    <Text display="block" p={4} cursor="pointer">
-                        {t(section)}
-                    </Text>
-                </RouterLink>
-            );
-        } else {
-            // If already on the home page, scroll to the section
-            return (
-                <ScrollLink to={section} smooth={true} duration={500} onClick={onClose}>
-                    <Text display="block" p={4} cursor="pointer">
-                        {section.charAt(0).toUpperCase() + section.slice(1)}
-                    </Text>
-                </ScrollLink>
-            );
-        }
+    const createAnchorLink = (section) => {
+        return (
+            <RouterLink to={`/${currentLang}/#${section}`} onClick={onClose}>
+                <Text display="block" p={4} cursor="pointer">
+                    {t(section)}
+                </Text>
+            </RouterLink>
+        );
     };
 
     return (
-        <Box as="nav" position="fixed" top="0" right="0" zIndex="999" p={4}>
+        <Box as="nav" position="fixed" top="0" right="0" zIndex="999" m={3} p={1}>
 
             <Menu>
                 <MenuButton
@@ -77,10 +68,11 @@ const Navbar = () => {
                 <DrawerContent>
                     <DrawerCloseButton />
                     <DrawerBody>
-                        {handleScrollLink('about')}
-                        {handleScrollLink('contact')}
-                        {handleScrollLink('projects')}
-                        {handleScrollLink('github-contributions')}
+                        {createAnchorLink('about')}
+                        {createAnchorLink('contact')}
+                        {createAnchorLink('projects')}
+                        {createAnchorLink('github-contributions')}
+                        {createAnchorLink('publications')}
 
                         <RouterLink to={`/${currentLang}/imprint`} onClick={onClose}>
                             <Text display="block" p={4} cursor="pointer">

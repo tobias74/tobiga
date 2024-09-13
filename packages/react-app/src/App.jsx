@@ -42,6 +42,8 @@ const LocaleRedirect = ({ children }) => {
   return children;
 };
 
+console.log('Rendering App');
+
 function App() {
   return (
     <Router>

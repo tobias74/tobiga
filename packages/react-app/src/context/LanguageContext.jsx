@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Create a context for language management
@@ -9,10 +9,10 @@ export const LanguageProvider = ({ children }) => {
     const [currentLang, setCurrentLang] = useState();
 
     // Function to manually change the language
-    const changeLanguage = (newLang) => {
+    const changeLanguage = useCallback((newLang) => {
         setCurrentLang(newLang);
         i18n.changeLanguage(newLang);  // Update i18n with the new language
-    };
+    }, [i18n]);
 
     // Sync the current language with i18n on initial render
     useEffect(() => {

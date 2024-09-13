@@ -6,21 +6,9 @@ import ProjectSection from '../components/ProjectSection';
 import ContactSection from '../components/ContactSection';
 import GithubContributionsSection from './GithubContributionsSection';
 import { Divider } from '@chakra-ui/react'; // Import Divider
+import { PublicationsSection } from './PublicationsSection';
+import ScrollToHashElement from './ScrollToHashElement';
 
-function ScrollToHashElement() {
-    const location = useLocation();
-
-    useEffect(() => {
-        if (location.hash) {
-            const element = document.getElementById(location.hash.substring(1)); // Remove the `#` symbol
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }, [location]);
-
-    return null;
-}
 
 const Home = () => {
     const { lang } = useParams();  // Get the current language from the URL
@@ -46,13 +34,16 @@ const Home = () => {
                 </Box>
 
                 {/* Project Section */}
-                <ProjectSection />
+                <Box mt={2} id="projects" py={1} >
+                    <ProjectSection />
+                </Box>
 
                 <Box mt={24} id="github-contributions" py={1} >
-                    <Heading as="h2" size="lg" mb={6} textAlign="center">
-                        {t('my-contributions')}
-                    </Heading>
                     <GithubContributionsSection />
+                </Box>
+
+                <Box mt={22} id="publications" py={1} >
+                    <PublicationsSection />
                 </Box>
 
                 <Box mb={10}></Box>

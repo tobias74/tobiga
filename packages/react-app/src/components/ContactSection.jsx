@@ -4,12 +4,12 @@ const ContactSection = () => (
     <Flex
         direction="column"
         align="center"
-        py={12}
+        pt={12}
         color="white"
         textAlign="center"
     >
         {/* Contact Links */}
-        <Box>
+        <Box  >
             <Flex gap={6}>
                 <Link href="https://github.com/tobias74" isExternal color="teal.300">
                     GitHub
