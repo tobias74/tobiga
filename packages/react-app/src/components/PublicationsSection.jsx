@@ -7,7 +7,7 @@ export const PublicationsSection = () => {
     const { i18n, t } = useTranslation();  // Get the current language from i18n
 
     return (
-        <Box mt={12} maxWidth="800px" width="100%" mx="auto" px={4}>
+        <Box mt={12} maxWidth="800px" width="100%" mx="auto" px={0}>
             <Text fontSize="2xl" fontWeight="bold" mb={6} textAlign="center">
                 {t('my-publications')}
             </Text>

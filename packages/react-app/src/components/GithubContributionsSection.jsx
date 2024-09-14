@@ -7,7 +7,7 @@ const GithubContributionsSection = () => {
     const { i18n, t } = useTranslation(); // Get the current language
 
     return (
-        <Box id="contributions" mt={12} maxWidth="800px" width="100%" mx="auto" px={4}> {/* Limit maxWidth to 800px */}
+        <Box id="contributions" mt={12} maxWidth="800px" width="100%" mx="auto" px={0}> {/* Limit maxWidth to 800px */}
             <Text fontSize="2xl" fontWeight="bold" mb={6} textAlign="center">
                 {t('my-contributions')}
             </Text>
@@ -28,7 +28,7 @@ const GithubContributionsSection = () => {
                                 </Text>
                             ))}
                         </Stack>
-                        <Link href={contribution.repoLink} color="teal.500" isExternal>
+                        <Link href={contribution.repoLink} color="teal.500" isExternal wordBreak="break-word">
                             {contribution.repoLink}
                         </Link>
                     </Box>
