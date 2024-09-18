@@ -5,6 +5,7 @@ import './virtual-cycling/page-styles.scss';
 import { useTranslation } from 'react-i18next';
 import { VirtualCyclingDe } from './virtual-cycling/VirtualCyclingDe';
 import { VirtualCyclingEn } from './virtual-cycling/VirtualCyclingEn';
+import { Helmet } from 'react-helmet-async';
 
 const VirtualCyclingInStreetView = () => {
 
@@ -17,9 +18,14 @@ const VirtualCyclingInStreetView = () => {
     }, [currentLang]);
 
     return (
-        <Box maxWidth="800px" mx="auto" py={6} px={4}>
-            {currentLang === 'de' ? <VirtualCyclingDe /> : <VirtualCyclingEn />}
-        </Box>
+        <>
+            <Helmet>
+                <title>{t('title-drumuri-bike')}</title>
+            </Helmet>
+            <Box maxWidth="800px" mx="auto" py={6} px={4}>
+                {currentLang === 'de' ? <VirtualCyclingDe /> : <VirtualCyclingEn />}
+            </Box>
+        </>
     );
 };
 

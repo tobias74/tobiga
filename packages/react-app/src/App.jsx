@@ -9,6 +9,7 @@ import Home from './components/Home';
 import VirtualCyclingInStreetView from './components/VirtualCyclingInStreetView';
 import { LanguageProvider } from './context/LanguageContext';
 import LanguageUpdater from './components/LanguageUpdater';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 const VALID_LANGUAGES = ['en', 'de'];  // Add supported languages here
 
@@ -46,46 +47,52 @@ console.log('Rendering App');
 
 function App() {
   return (
-    <Router>
-      <LanguageProvider>
-        <Flex direction="column" minHeight="100vh" bg="gray.900" color="white">
-          <Navbar />
-          <Box mt={10} />
-          <Routes>
-            {/* If no language is specified, redirect to default locale (e.g., /en/) */}
-            <Route
-              path="/*"
-              element={
-                <LocaleRedirect>
-                  <Routes>
-                    {/* Wrap all language-based routes */}
-                    <Route
-                      path="/:lang/*"
-                      element={
-                        <>
-                          <LanguageUpdater />  {/* Will update the language context */}
-                          <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="imprint" element={<Imprint />} />
-                            <Route path="privacy" element={<Privacy />} />
-                            <Route path="datenschutzerklaerung" element={<Privacy />} />
-                            <Route path="virtual-cycling-in-street-view" element={<VirtualCyclingInStreetView />} />
-                          </Routes>
-                        </>
-                      }
-                    />
-                  </Routes>
-                </LocaleRedirect>
-              }
-            />
-          </Routes>
+    <HelmetProvider>
+      <Router>
+        <LanguageProvider>
+          <Helmet>
+            <title>tobiga UG (haftungsbeschränkt)</title>
+          </Helmet>
 
-          <Box id="legal" width="100%" mt="auto">
-            <FooterSection />
-          </Box>
-        </Flex>
-      </LanguageProvider>
-    </Router>
+          <Flex direction="column" minHeight="100vh" bg="gray.900" color="white">
+            <Navbar />
+            <Box mt={10} />
+            <Routes>
+              {/* If no language is specified, redirect to default locale (e.g., /en/) */}
+              <Route
+                path="/*"
+                element={
+                  <LocaleRedirect>
+                    <Routes>
+                      {/* Wrap all language-based routes */}
+                      <Route
+                        path="/:lang/*"
+                        element={
+                          <>
+                            <LanguageUpdater />  {/* Will update the language context */}
+                            <Routes>
+                              <Route path="/" element={<Home />} />
+                              <Route path="imprint" element={<Imprint />} />
+                              <Route path="privacy" element={<Privacy />} />
+                              <Route path="datenschutzerklaerung" element={<Privacy />} />
+                              <Route path="virtual-cycling-in-street-view" element={<VirtualCyclingInStreetView />} />
+                            </Routes>
+                          </>
+                        }
+                      />
+                    </Routes>
+                  </LocaleRedirect>
+                }
+              />
+            </Routes>
+
+            <Box id="legal" width="100%" mt="auto">
+              <FooterSection />
+            </Box>
+          </Flex>
+        </LanguageProvider>
+      </Router>
+    </HelmetProvider>
   );
 }
 
