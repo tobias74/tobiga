@@ -48,5 +48,16 @@ export const projects = [
         tools: ['React', 'Firebase', 'React MUI'],
         link: 'https://leukemia-images.com/',
         image: '/images/leukemia-images.png',
+    },
+    {
+        title: 'Spatiotemporal (3D R-tree)',
+        description: {
+            en: 'A minimalistic Java-based Spring Boot application. It implements an R-tree index based on SQLite. The R-tree is used for efficient sorting by distance to a query point.',
+            de: 'Eine minimalistische, Java-basierte Spring Boot-Anwendung. Es wird ein R-Baum-Index auf SQLite-Basis implementiert. Der R-Baum wird zur effizienten Sortierung nach Entfernung zu einem Abfragepunkt verwendet.'
+        },
+        tools: ['Java', 'Spring Boot', 'SQLite'],
+        link: 'https://github.com/tobias74/spatiotemporal',
+        image: '/images/3drtree.png'
     }
+
 ];
