@@ -166,7 +166,20 @@ export const GithubContributions = [
         },
         "languages": ["JavaScript"],
         "repoLink": "https://github.com/jkuri/ngx-slimscroll/pull/66"
+    },
+    {
+        title: {
+            en: 'Tobiga Showcase Website (this site)',
+            de: 'Tobiga Showcase Website (diese Seite)',
+        },
+        description: {
+            en: 'This website provides a platform to present a variety of software projects and contributions. Built with React, Chakra UI, and Tailwind CSS, the site features a responsive design and supports multiple languages.',
+            de: 'Diese Website bietet eine Plattform zur Präsentation verschiedener Softwareprojekte und Beiträge. Entwickelt mit React, Chakra UI und Tailwind CSS, bietet die Seite ein responsives Design und unterstützt mehrere Sprachen.',
+        },
+        languages: ['React', 'Chakra UI', 'Tailwind CSS', 'Handlebars'],
+        repoLink: 'https://github.com/tobias74/tobiga'
     }
+
 
 
 
