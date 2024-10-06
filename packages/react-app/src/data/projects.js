@@ -20,6 +20,16 @@ export const projects = [
         image: '/images/rfid-chat.png',
     },
     {
+        title: 'Spatiotemporal (3D R-tree)',
+        description: {
+            en: 'A minimalistic Java-based Spring Boot application. It implements an R-tree index based on SQLite. The R-tree is used for efficient sorting by distance to a query point.',
+            de: 'Eine minimalistische, Java-basierte Spring Boot-Anwendung. Es wird ein R-Baum-Index auf SQLite-Basis implementiert. Der R-Baum wird zur effizienten Sortierung nach Entfernung zu einem Abfragepunkt verwendet.'
+        },
+        tools: ['Java', 'Spring Boot', 'SQLite'],
+        sourceLink: 'https://github.com/tobias74/spatiotemporal',
+        image: '/images/3drtree.png'
+    },
+    {
         title: 'motionphoto.gallery',
         description: {
             en: 'A tool for extracting videos from motion photos taken on smartphones, allowing users to access and use the video portion.',
@@ -50,22 +60,12 @@ export const projects = [
         image: '/images/leukemia-images.png',
     },
     {
-        title: 'Spatiotemporal (3D R-tree)',
-        description: {
-            en: 'A minimalistic Java-based Spring Boot application. It implements an R-tree index based on SQLite. The R-tree is used for efficient sorting by distance to a query point.',
-            de: 'Eine minimalistische, Java-basierte Spring Boot-Anwendung. Es wird ein R-Baum-Index auf SQLite-Basis implementiert. Der R-Baum wird zur effizienten Sortierung nach Entfernung zu einem Abfragepunkt verwendet.'
-        },
-        tools: ['Java', 'Spring Boot', 'SQLite'],
-        sourceLink: 'https://github.com/tobias74/spatiotemporal',
-        image: '/images/3drtree.png'
-    },
-    {
         title: 'Proof of Existence Dapp',
         description: {
             en: 'A decentralized application that allows users to notarize files on the Ethereum blockchain by hashing them locally and storing the hash on-chain.',
             de: 'Eine dezentrale Anwendung, die es Nutzern ermöglicht, Dateien auf der Ethereum-Blockchain zu notarisieren, indem der Hash lokal berechnet und in der Blockchain gespeichert wird.'
         },
-        tools: ['React', 'RainbowKit', 'Wagmi', 'Ethereum', 'Smart Contracts', 'Solidity'],
+        tools: ['React', 'RainbowKit', 'Wagmi', 'Solidity'],
         liveLink: 'https://documented.me',
         sourceLink: 'https://github.com/tobias74/proof-of-existence',
         image: '/images/documented-me.png'
