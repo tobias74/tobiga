@@ -178,7 +178,20 @@ export const GithubContributions = [
         },
         languages: ['React', 'Chakra UI', 'Tailwind CSS', 'Handlebars'],
         repoLink: 'https://github.com/tobias74/tobiga'
+    },
+    {
+        "title": {
+            "en": "Fork of FirebaseUI Web Without Fonts Import",
+            "de": "Fork von FirebaseUI Web ohne Fonts-Import"
+        },
+        "description": {
+            "en": "This fork of FirebaseUI Web removes the hard-coded loading of the Roboto font from Google Fonts. This is ideal for projects that want to host fonts locally or avoid external font requests. The original functionality of FirebaseUI Web is unchanged.",
+            "de": "Dieser Fork von FirebaseUI Web entfernt das fest eingebundene Laden der Roboto-Schriftart von Google Fonts. Ideal für Projekte, die Schriftarten lokal hosten oder externe Anfragen vermeiden möchten. Die ursprüngliche Funktionalität von FirebaseUI Web bleibt unverändert."
+        },
+        "languages": ["JavaScript", "Firebase"],
+        "repoLink": "https://github.com/tobias74/firebaseui-web"
     }
+
 
 
 
