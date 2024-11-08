@@ -14,7 +14,7 @@ export const MotionPhotoDe = () => {
 
             <p>Da die Extraktion direkt im Browser erfolgt, kann die Verarbeitung aufwändig sein. Ihr Computer könnte dabei mehr Energie verbrauchen und sich besonders bei großen Dateien oder hochauflösenden Motion Fotos erwärmen.</p>
 
-            <p><strong><a href="https://motionphoto.gallery" target="_blank">motionphoto.gallery</a></strong> macht es einfach, auf die eingebetteten Videoclips in Ihren Fotos zuzugreifen und sie für die spätere Ansicht oder Weitergabe zu speichern – ganz lokal und ohne Datenübertragung.</p>
+            <p><strong><a href="https://motionphoto.gallery" target="_blank">motionphoto.gallery</a></strong> macht es einfach, auf die eingebetteten Videoclips in Ihren Fotos zuzugreifen und sie für die spätere Ansicht oder Weitergabe zu speichern.</p>
         </Box>
     );
 };
