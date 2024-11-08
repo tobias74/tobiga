@@ -20,6 +20,10 @@ const MotionPhotoGallery = () => {
         <>
             <Helmet>
                 <title>{t('title-motionphoto-gallery')}</title>
+                <meta
+                    name="description"
+                    content={t('description-motionphoto-gallery')}
+                />
             </Helmet>
             <Box maxWidth="800px" mx="auto" py={6} px={4}>
                 {currentLang === 'de' ? <MotionPhotoDe /> : <MotionPhotoEn />}
