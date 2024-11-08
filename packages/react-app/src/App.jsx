@@ -10,6 +10,7 @@ import VirtualCyclingInStreetView from './components/VirtualCyclingInStreetView'
 import { LanguageProvider } from './context/LanguageContext';
 import LanguageUpdater from './components/LanguageUpdater';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
+import MotionPhotoGallery from './components/MotionPhotoGallery';
 
 const VALID_LANGUAGES = ['en', 'de'];  // Add supported languages here
 
@@ -76,6 +77,7 @@ function App() {
                               <Route path="privacy" element={<Privacy />} />
                               <Route path="datenschutzerklaerung" element={<Privacy />} />
                               <Route path="virtual-cycling-in-street-view" element={<VirtualCyclingInStreetView />} />
+                              <Route path="motion-photo-extraction" element={<MotionPhotoGallery />} />
                             </Routes>
                           </>
                         }
