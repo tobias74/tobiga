@@ -10,7 +10,7 @@ export const MotionPhotoDe = () => {
 
             <p><strong><a href="https://motionphoto.gallery" target="_blank">motionphoto.gallery</a></strong> ist ein praktisches Werkzeug, um Videoclips aus Motion Fotos herauszulösen. Diese speziellen Fotos, die oft mit Smartphones aufgenommen werden, enthalten neben dem Standbild einen kurzen Videoclip. Motion Fotos erfassen auch die Zeit unmittelbar vor dem eigentlichen Foto – so lässt sich ein verpasster Moment einfangen, selbst wenn der Auslöser etwas zu spät gedrückt wurde.</p>
 
-            <p>Mit <strong><a href="https://motionphoto.gallery" target="_blank">motionphoto.gallery</a></strong> können Sie die Videoanteile Ihrer Motion Fotos direkt im Browser extrahieren und speichern. Die Verarbeitung erfolgt vollständig auf Ihrem Computer – es werden keine Dateien hochgeladen.</p>
+            <p>Mit <strong><a href="https://motionphoto.gallery" target="_blank">motionphoto.gallery</a></strong> können Sie die Videoanteile Ihrer Motion Fotos direkt im Browser extrahieren und speichern. Die Verarbeitung erfolgt vollständig auf Ihrem Computer.</p>
 
             <p>Da die Extraktion direkt im Browser erfolgt, kann die Verarbeitung aufwändig sein. Ihr Computer könnte dabei mehr Energie verbrauchen und sich besonders bei großen Dateien oder hochauflösenden Motion Fotos erwärmen.</p>
 
