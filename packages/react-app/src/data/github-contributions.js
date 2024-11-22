@@ -190,7 +190,20 @@ export const GithubContributions = [
         },
         "languages": ["JavaScript", "Firebase"],
         "repoLink": "https://github.com/tobias74/firebaseui-web"
+    },
+    {
+        "title": {
+            "en": "Export StravaPointsOptions Interface",
+            "de": "Export der StravaPointsOptions-Schnittstelle"
+        },
+        "description": {
+            "en": "This pull request adds the export of the `StravaPointsOptions` interface, enabling developers to utilize it in their TypeScript projects when working with the `gpx-builder` library. The enhancement was merged on November 19, 2024.",
+            "de": "Dieser Pull-Request fügt den Export der `StravaPointsOptions`-Schnittstelle hinzu, sodass Entwickler sie in ihren TypeScript-Projekten bei der Arbeit mit der `gpx-builder`-Bibliothek verwenden können. Die Erweiterung wurde am 19. November 2024 integriert."
+        },
+        "languages": ["TypeScript"],
+        "repoLink": "https://github.com/fabulator/gpx-builder/pull/227"
     }
+
 
 
 
