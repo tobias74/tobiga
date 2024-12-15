@@ -70,6 +70,18 @@ export const projects = [
         sourceLink: 'https://github.com/tobias74/proof-of-existence',
         image: '/images/documented-me.png'
     },
+    {
+        title: 'Rechendreieck Math Game',
+        description: {
+            en: 'An interactive and responsive math game designed for children to solve calculation triangles with varying difficulty levels. Features include instant feedback, confetti effects, and customization options.',
+            de: 'Ein interaktives und responsives Mathe-Spiel für Kinder, bei dem sogenannte Rechendreiecke mit verschiedenen Schwierigkeitsgraden gelöst werden müssen.'
+        },
+        tools: ['React', 'Vite', 'TailwindCSS', 'DaisyUI'],
+        liveLink: 'https://rechendreiecke.de',
+        sourceLink: 'https://github.com/tobias74/rechendreiecke',
+        image: '/images/rechendreiecke.png'
+    }
+
 
 
 ];
