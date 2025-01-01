@@ -80,7 +80,19 @@ export const projects = [
         liveLink: 'https://rechendreiecke.de',
         sourceLink: 'https://github.com/tobias74/rechendreiecke',
         image: '/images/rechendreiecke.png'
+    },
+    {
+        "title": "2 Goats 1 Car",
+        "description": {
+            "en": "An interactive tool to explore the Monty Hall problem. '2 Goats 1 Car' allows users to simulate various scenarios, adjust settings such as the number of doors, player strategy, and host knowledge, and observe the resulting probabilities.",
+            "de": "Ein interaktives Werkzeug zur Erforschung des Monty-Hall-Problems. Nutzer können verschiedene Szenarien simulieren, Parameter wie die Anzahl der Türen, die Spielerstrategie und das Wissen des Moderators anpassen und die resultierenden Wahrscheinlichkeiten beobachten."
+        },
+        "tools": ["React", "Vite", "TailwindCSS", "Web Worker"],
+        "liveLink": "https://2goats1car.com",
+        "sourceLink": "https://github.com/tobias74/2goats1car",
+        "image": "/images/2goats1car.png"
     }
+
 
 
 
