@@ -37,6 +37,7 @@ export const projects = [
         },
         tools: ['Vue.js'],
         liveLink: 'https://motionphoto.gallery',
+        sourceLink: 'https://github.com/tobias74/motion-photo-gallery',
         image: '/images/motionphoto-gallery.png',
     },
     {
