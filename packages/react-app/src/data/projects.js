@@ -92,7 +92,18 @@ export const projects = [
         "liveLink": "https://2goats1car.com",
         "sourceLink": "https://github.com/tobias74/2goats1car",
         "image": "/images/2goats1car.png"
+    },
+    {
+        "title": "You GATT Me",
+        "description": {
+            "en": "An Android-based GATT service simulator that emulates fitness machine profiles (FTMS), cycling speed & cadence (CSC), running speed & cadence (RSC), and cycling power (CP). Enables testing and development of Bluetooth LE fitness applications without physical devices.",
+            "de": "Ein GATT-Service-Simulator für Android, der Fitnessgeräte wie Laufbänder, Indoor-Bikes, Crosstrainer und Rudergeräte virtuell nachbildet. Entwickelt für das Testen und die Entwicklung von Bluetooth-LE-Fitnessanwendungen, ohne dass echte Geräte benötigt werden."
+        },
+        "tools": ["Android", "Bluetooth LE", "Kotlin",],
+        "sourceLink": "https://github.com/tobias74/you-gatt-me",
+        "image": "/images/you-gatt-me.png"
     }
+
 
 
 
