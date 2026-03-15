@@ -11,6 +11,7 @@ import { LanguageProvider } from './context/LanguageContext';
 import LanguageUpdater from './components/LanguageUpdater';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import MotionPhotoGallery from './components/MotionPhotoGallery';
+import GpxVideoSynchronization from './components/GpxVideoSynchronization';
 
 const VALID_LANGUAGES = ['en', 'de'];  // Add supported languages here
 
@@ -78,6 +79,7 @@ function App() {
                               <Route path="datenschutzerklaerung" element={<Privacy />} />
                               <Route path="virtual-cycling-in-street-view" element={<VirtualCyclingInStreetView />} />
                               <Route path="motion-photo-extraction" element={<MotionPhotoGallery />} />
+                              <Route path="gpx-video-synchronization" element={<GpxVideoSynchronization />} />
                             </Routes>
                           </>
                         }
