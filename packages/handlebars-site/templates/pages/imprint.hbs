@@ -1,0 +1,9 @@
+{{#dynamicLayout "layout" pageTitle="Imprint"}}
+  <div class="privacy-container">
+    {{#equals lang "en"}}
+      {{> imprint_en}}
+    {{else}}
+      {{> imprint_de}}
+    {{/equals}}
+  </div>
+{{/dynamicLayout}}

@@ -14,6 +14,7 @@ const pagesDir = path.join(templatesDir, 'pages');
 const scssDir = path.join(__dirname, 'scss');  // Path to SCSS folder
 const localesDir = path.join(__dirname, 'locales'); // Path to locales folder
 const outputDir = path.join(__dirname, 'dist');
+const reactComponentsDir = path.join(__dirname, '..', 'react-app', 'src', 'components');
 
 // Define supported languages
 const languages = ['en', 'de']; // Add any additional languages here (e.g., 'fr', 'es')
@@ -60,6 +61,30 @@ fs.readdirSync(partialsDir).forEach((file) => {
         console.log(`Registered partial: ${partialName}`);
     }
 });
+
+const extractReactComponentMarkup = (filePath) => {
+    const source = fs.readFileSync(filePath, 'utf8');
+    const match = source.match(/return\s*\(\s*<div>\s*([\s\S]*?)\s*<\/div>\s*\);\s*};/);
+
+    if (!match) {
+        throw new Error(`Could not extract static markup from ${filePath}`);
+    }
+
+    return match[1]
+        .replace(/className=/g, 'class=')
+        .replace(/\{\s*\/\*[\s\S]*?\*\/\s*\}/g, '')
+        .trim();
+};
+
+const registerReactPartial = (partialName, relativeFilePath) => {
+    const filePath = path.join(reactComponentsDir, relativeFilePath);
+    const partialTemplate = extractReactComponentMarkup(filePath);
+    Handlebars.registerPartial(partialName, partialTemplate);
+    console.log(`Registered React partial: ${partialName}`);
+};
+
+registerReactPartial('site_privacy_en', path.join('privacy', 'PrivacyEn.jsx'));
+registerReactPartial('site_privacy_de', path.join('privacy', 'PrivacyDe.jsx'));
 
 // Register a custom helper to dynamically load and compile layouts
 Handlebars.registerHelper('dynamicLayout', function (layoutName, options) {
