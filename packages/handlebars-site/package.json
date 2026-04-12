@@ -4,7 +4,7 @@
   "description": "Static site generator using Handlebars",
   "main": "render.js",
   "scripts": {
-    "build": "npm install && node render.js && npm run build:css",
+    "build": "node render.js && npm run build:css",
     "watch": "nodemon --watch templates --watch scss --ext js,hbs,scss --exec npm run build",
     "build:css": "sass scss/main.scss dist/css/main.css && postcss dist/css/main.css -o dist/css/main.css",
     "watch:css": "sass --watch scss/main.scss dist/css/main.css"
@@ -18,8 +18,5 @@
     "postcss-cli": "^11.0.0",
     "sass": "^1.78.0",
     "tailwindcss": "^3.4.10"
-  },
-  "dependencies": {
-    "handlebars-site": "file:"
   }
 }
