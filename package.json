@@ -1,4 +1,7 @@
 {
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build-all": "npm run build-handlebars-copy && npm run build-react",
     "build-handlebars": "npm --prefix packages/handlebars-site run build",
