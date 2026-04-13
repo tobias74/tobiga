@@ -1,0 +1,116 @@
+<div class="privacy-container sync-article">
+  <h1>Synchronizing YouTube Videos with Your Own Workout</h1>
+
+  <p>
+    YouTube contains many videos that work well for cycling workouts. These include route videos, mountain pass rides,
+    landscape footage, or complete tours filmed from the rider&rsquo;s perspective. But when such a video is played
+    directly on YouTube, it is not connected to the workout itself. The video continues along its fixed timeline,
+    regardless of how fast or slowly the rider is actually moving.
+  </p>
+
+  <p>
+    This is exactly where synchronization comes in. The goal is to link the position in the video to a real or manually
+    traced route so that playback no longer follows only a fixed video duration, but instead follows the rider&rsquo;s
+    progress along the route.
+  </p>
+
+  <h2>Starting Point</h2>
+
+  <p>
+    A YouTube video initially provides only a timeline. A GPX file, by contrast, describes a route using spatial
+    coordinates. The two data sources therefore contain different kinds of information:
+  </p>
+
+  <ul>
+    <li>the video provides the visual representation of a ride</li>
+    <li>the GPX file provides the geometric description of the route</li>
+    <li>there is initially no direct mapping between the two</li>
+  </ul>
+
+  <p>
+    Without that mapping, it is impossible to know which point in the video corresponds to which position on the route.
+    That means neither the current video position can be derived from workout progress nor can playback be adjusted in a
+    meaningful way.
+  </p>
+
+  <h2>Technical Approach</h2>
+
+  <p>
+    Synchronization is based on reference points between video time and route position. These reference points are used
+    here as synchronization anchors. Each anchor describes a known mapping, for example:
+  </p>
+
+  <pre><code>00:00  -&gt;   0.0 km
+05:30  -&gt;   3.2 km
+12:10  -&gt;   8.7 km</code></pre>
+
+  <p>
+    The system interpolates between these points. This creates a mapping between time in the video and position on the
+    route. That makes it possible to calculate, at any moment, where the video is on the route. Conversely, the current
+    position on the route can also be used to determine which moment in the video should be shown.
+  </p>
+
+  <h2>Why Simple Global Scaling Is Not Enough</h2>
+
+  <p>
+    One obvious idea would be to map the full video duration to the full route length. In practice, however, that is not
+    sufficient. Route videos often contain sections with different riding speeds, short stops, or other irregularities.
+    GPX data is not always perfectly uniform or exact either.
+  </p>
+
+  <p>
+    If only global scaling is used, drift appears over time. The video then runs visibly ahead of or behind the route.
+    Local reference points are therefore necessary to keep the mapping stable enough along the route.
+  </p>
+
+  <h2>Behavior During the Workout</h2>
+
+  <p>
+    During the workout, a target position in the video is continuously calculated from the current route position. This
+    leads to two typical mechanisms:
+  </p>
+
+  <ul>
+    <li>for smaller deviations, the playback speed is adjusted</li>
+    <li>for larger deviations, the video position is deliberately reset</li>
+  </ul>
+
+  <p>
+    This creates a continuous follow-up behavior rather than a rigid coupling. The video can follow the actual workout
+    without visibly jumping for every small difference.
+  </p>
+
+  <h2>Example</h2>
+
+  <p>A typical example of suitable material is a route video on YouTube:</p>
+
+  <p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Open YouTube video</a>
+  </p>
+
+  <p>
+    When such a video is linked to a GPX file or a manually traced route, it stops being an ordinary video and becomes
+    route-based playback whose progress depends on the workout.
+  </p>
+
+  <h2>Observations from the Implementation</h2>
+
+  <ul>
+    <li>even a few well-placed anchor points are often enough</li>
+    <li>more anchor points do not automatically increase quality</li>
+    <li>small deviations become visibly cumulative over longer distances</li>
+    <li>what matters is not only mathematical accuracy, but also calm playback behavior</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+
+  <p>
+    YouTube already contains a large amount of material suitable for indoor cycling. What is normally missing is the
+    technical connection between video playback and workout progress. By mapping video time to route position, that gap
+    can be closed.
+  </p>
+
+  <p>
+    The result is playback in which the video is no longer simply played, but instead follows the course of the workout.
+  </p>
+</div>

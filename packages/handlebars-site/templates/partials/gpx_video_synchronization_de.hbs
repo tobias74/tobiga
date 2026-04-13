@@ -1,0 +1,118 @@
+<div class="privacy-container sync-article">
+  <h1>Synchronisation von YouTube-Videos mit dem eigenen Workout</h1>
+
+  <p>
+    Auf YouTube gibt es viele Videos, die sich für Cycling Workouts eignen. Dazu gehören insbesondere Streckenvideos,
+    Passfahrten, Landschaftsaufnahmen oder komplette Touren aus der Fahrerperspektive. Wird ein solches Video jedoch
+    direkt auf YouTube abgespielt, fehlt die Kopplung an das eigene Workout. Das Video läuft mit seiner festen
+    Zeitachse weiter, unabhängig davon, wie schnell oder langsam tatsächlich gefahren wird.
+  </p>
+
+  <p>
+    Genau an dieser Stelle setzt die Synchronisation an. Ziel ist es, die Position im Video mit einer realen oder
+    nachgezeichneten Strecke zu verknüpfen, so dass die Wiedergabe nicht mehr nur einer festen Videodauer folgt,
+    sondern dem Fortschritt auf der Strecke.
+  </p>
+
+  <h2>Ausgangslage</h2>
+
+  <p>
+    Ein YouTube-Video besitzt zunächst nur eine Zeitachse. Eine GPX-Datei beschreibt dagegen eine Strecke mit
+    räumlichen Koordinaten. Beide Datenquellen enthalten also unterschiedliche Informationen:
+  </p>
+
+  <ul>
+    <li>das Video liefert die visuelle Darstellung einer Fahrt</li>
+    <li>die GPX-Datei liefert die geometrische Beschreibung der Strecke</li>
+    <li>zwischen beiden existiert zunächst keine direkte Zuordnung</li>
+  </ul>
+
+  <p>
+    Ohne diese Zuordnung ist nicht bekannt, welcher Punkt im Video welcher Position auf der Strecke entspricht. Damit
+    lässt sich weder die aktuelle Videoposition aus dem Trainingsfortschritt bestimmen noch die Wiedergabe sinnvoll
+    anpassen.
+  </p>
+
+  <h2>Technischer Ansatz</h2>
+
+  <p>
+    Die Synchronisation erfolgt über Referenzpunkte zwischen Videozeit und Streckenposition. Diese Referenzpunkte
+    werden hier als Synchronisationsanker verwendet. Jeder Anker beschreibt eine bekannte Zuordnung, zum Beispiel:
+  </p>
+
+  <pre><code>00:00  -&gt;   0,0 km
+05:30  -&gt;   3,2 km
+12:10  -&gt;   8,7 km</code></pre>
+
+  <p>
+    Zwischen diesen Punkten wird interpoliert. Auf diese Weise entsteht eine Abbildung zwischen Zeit im Video und
+    Position auf der Strecke. Damit kann zu jedem Zeitpunkt berechnet werden, wo sich das Video auf der Route befindet.
+    Umgekehrt lässt sich aus der aktuellen Position auf der Strecke auch bestimmen, welche Stelle im Video gezeigt
+    werden müsste.
+  </p>
+
+  <h2>Warum eine einfache Gesamtskalierung nicht genügt</h2>
+
+  <p>
+    Naheliegend wäre es, einfach die gesamte Videodauer auf die gesamte Streckenlänge abzubilden. In der Praxis reicht
+    das jedoch nicht aus. Streckenvideos enthalten häufig Abschnitte mit unterschiedlicher Fahrgeschwindigkeit, kurze
+    Stopps oder andere Unregelmäßigkeiten. Auch GPX-Daten sind nicht immer vollkommen gleichmäßig oder exakt.
+  </p>
+
+  <p>
+    Wird nur global skaliert, entsteht mit der Zeit Drift. Das Video läuft dann sichtbar vor oder hinter der Strecke.
+    Lokale Referenzpunkte sind deshalb notwendig, um die Zuordnung entlang der Strecke ausreichend stabil zu halten.
+  </p>
+
+  <h2>Verhalten während des Workouts</h2>
+
+  <p>
+    Während des Workouts wird fortlaufend aus der aktuellen Streckenposition eine Zielposition im Video berechnet.
+    Daraus ergeben sich zwei typische Mechanismen:
+  </p>
+
+  <ul>
+    <li>bei kleineren Abweichungen wird die Wiedergabegeschwindigkeit angepasst</li>
+    <li>bei größeren Abweichungen wird die Videoposition gezielt neu gesetzt</li>
+  </ul>
+
+  <p>
+    Dadurch entsteht keine starre Kopplung, sondern eine kontinuierliche Nachführung. Das Video kann dem
+    tatsächlichen Workout folgen, ohne bei jeder kleinen Differenz sichtbar zu springen.
+  </p>
+
+  <h2>Beispiel</h2>
+
+  <p>Ein typisches Beispiel für geeignetes Material ist ein Streckenvideo auf YouTube:</p>
+
+  <p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">YouTube-Video öffnen</a>
+  </p>
+
+  <p>
+    Wird ein solches Video mit einer GPX-Datei oder einer nachgezeichneten Route gekoppelt, entsteht daraus kein
+    gewöhnliches Video mehr, sondern eine streckenbezogene Wiedergabe, deren Fortschritt vom Workout abhängt.
+  </p>
+
+  <h2>Beobachtungen aus der Umsetzung</h2>
+
+  <ul>
+    <li>bereits wenige gut gesetzte Ankerpunkte reichen oft aus</li>
+    <li>zu viele Ankerpunkte erhöhen nicht automatisch die Qualität</li>
+    <li>kleine Abweichungen summieren sich über längere Strecken sichtbar auf</li>
+    <li>entscheidend ist nicht nur mathematische Genauigkeit, sondern auch ein ruhiges Wiedergabeverhalten</li>
+  </ul>
+
+  <h2>Fazit</h2>
+
+  <p>
+    YouTube enthält bereits eine große Menge an Material, das sich für Indoor-Cycling eignet. Was normalerweise
+    fehlt, ist die technische Verbindung zwischen Videowiedergabe und Trainingsfortschritt. Durch die Zuordnung von
+    Videozeit und Streckenposition lässt sich diese Lücke schließen.
+  </p>
+
+  <p>
+    Das Ergebnis ist eine Wiedergabe, bei der das Video nicht mehr einfach nur abgespielt wird, sondern dem Verlauf des
+    eigenen Workouts folgt.
+  </p>
+</div>
