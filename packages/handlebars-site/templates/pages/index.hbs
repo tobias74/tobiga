@@ -1,3 +1,7 @@
 {{#dynamicLayout "layout" pageTitle="Home"}}
-  ----
+  {{#equals lang "en"}}
+    {{> project_home_en}}
+  {{else}}
+    {{> project_home_de}}
+  {{/equals}}
 {{/dynamicLayout}}
