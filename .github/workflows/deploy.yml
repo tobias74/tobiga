@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           server: access978123064.webspace-data.io
           port: 22
-          local_path: packages/react-app/dist/* # Deploy only the React app's build output
+          local_path: packages/react-app/dist/. # Deploy the React app's build output, including dotfiles
           remote_path: /
           sftp_only: true
           password: ${{ secrets.SFTP_PASSWORD }} # Use secrets for authentication
