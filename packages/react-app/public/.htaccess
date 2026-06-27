@@ -1,8 +1,16 @@
 RewriteEngine On
+RewriteBase /
 
-# Serve the directory if it exists
-RewriteCond %{REQUEST_FILENAME} -d [OR]
-# Serve the file if it exists
-RewriteCond %{REQUEST_FILENAME} -f
-# If neither condition above is met, redirect to index.html
-RewriteRule ^ index.html [L]
+# Redirect non-canonical hosts to the canonical HTTPS root.
+RewriteCond %{HTTP_HOST} !^tobiga\.com$ [NC]
+RewriteRule ^ https://tobiga.com/ [R=301,L,QSD]
+
+# Redirect HTTP requests to the canonical HTTPS root before applying the SPA fallback.
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !^https$ [NC]
+RewriteRule ^ https://tobiga.com/ [R=301,L,QSD]
+
+# If the requested file or directory does not exist, serve index.html.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
