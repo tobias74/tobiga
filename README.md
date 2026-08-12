@@ -84,6 +84,9 @@ The Handlebars project generates static HTML files and CSS from SCSS with the fo
 - `npm run watch-handlebars`: Watches for changes in Handlebars files and updates the output.
 - `npm run copy-handlebars-output`: Copies the compiled Handlebars templates into the React public folder.
 
+Handlebars output is copied to `packages/react-app/public/static` and served by the React dev server under `/static/{lang}/...`.
+For example, during local development you can open `http://localhost:5173/static/en/index.html` or `http://localhost:5173/static/de/index.html`.
+
 ## Contributing
 
 Feel free to open issues or submit pull requests to contribute to this project.
