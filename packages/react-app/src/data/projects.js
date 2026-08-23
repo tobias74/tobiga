@@ -10,6 +10,17 @@ export const projects = [
         image: '/images/drumuri-bike.png',
     },
     {
+        title: 'BLE Bridge',
+        description: {
+            en: 'An open-source bridge that helps developers bring live BLE fitness data to games, dashboards, and other internet-connected platforms without direct Bluetooth access.',
+            de: 'Eine Open-Source-Brücke, über die Entwickler Live-Daten von BLE-Fitnessgeräten in Spiele, Dashboards und andere internetfähige Plattformen ohne eigenen Bluetooth-Zugriff integrieren können.'
+        },
+        tools: ['React', 'Node.js', 'Web Bluetooth', 'WebSocket'],
+        liveLink: 'https://blebridge.com',
+        sourceLink: 'https://github.com/tobias74/ble-web-bridge',
+        image: '/images/ble-bridge.png',
+    },
+    {
         title: 'RFID Chat',
         description: {
             en: 'An experimental app that stores and transmits short messages using RFID tags. Messages can only be deleted with physical access to the tag.',

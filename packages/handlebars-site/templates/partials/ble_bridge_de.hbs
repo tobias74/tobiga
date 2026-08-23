@@ -1,0 +1,108 @@
+<article class="project-detail">
+  <a class="project-backlink" href="./index.html">Zur Projektübersicht</a>
+
+  <p class="project-card-label">Bluetooth &amp; Open Source</p>
+  <h1>BLE Bridge</h1>
+
+  <p class="project-lead">
+    BLE Bridge richtet sich an Softwareentwickler, die Messwerte von Bluetooth-Low-Energy-Fitnessgeräten auf einer
+    Plattform verarbeiten möchten, die zwar das Internet erreicht, aber selbst keinen Zugriff auf Bluetooth bietet.
+  </p>
+
+  <h2>Wenn die Zielplattform nur HTTP versteht</h2>
+
+  <p>
+    Viele Spiele, Cloud-Dienste und eingebettete Skriptumgebungen können Web-APIs aufrufen, stellen jedoch keine
+    Bluetooth-Schnittstelle zur Verfügung. Ein eigener nativer Gerätetreiber wäre dort entweder gar nicht möglich oder
+    eng an ein bestimmtes Betriebssystem gebunden. BLE Bridge trennt diese beiden Welten: Auf der einen Seite bleibt die
+    Hardware beim Browser, auf der anderen Seite arbeitet die Anwendung mit einer normalen JSON-API.
+  </p>
+
+  <p>
+    Die Integration in ein eigenes Projekt bleibt dadurch überschaubar. Der Entwickler benötigt keinen Bluetooth-Stack
+    und muss keine binären GATT-Pakete auswerten. Die Zielanwendung fragt mit einem Verbindungscode den jeweils aktuellen
+    Stand ab und kann dabei entweder die vom Nutzer ausgewählten Hauptwerte oder sämtliche verfügbaren Quellen lesen.
+  </p>
+
+  <h2>Das Smartphone als Brücke zum Fitnessgerät</h2>
+
+  <p>
+    Der Browser muss sich in Reichweite des Sensors oder Trainers befinden, die Zielsoftware hingegen nicht. Neben einem
+    Rechner kann deshalb auch ein kompatibles Smartphone mit Web-Bluetooth-fähigem Chromium-Browser die Brücke bilden.
+    Das Telefon verbindet sich direkt mit dem BLE-Gerät und überträgt die aufbereiteten Werte über das Internet an das
+    Relay.
+  </p>
+
+  <p>
+    Für den Nutzer sind dafür nur wenige Schritte nötig: Webseite öffnen, die gewünschten GATT-Dienste wählen, das Gerät
+    im Bluetooth-Dialog verbinden und den angezeigten Code in das Spiel oder Dashboard übernehmen. Eine separate native
+    Bridge-App muss auf dem Smartphone nicht installiert werden.
+  </p>
+
+  <h2>Der Weg eines Messwerts</h2>
+
+  <div class="project-flow" aria-label="Datenweg durch BLE Bridge">
+    <span>BLE-Fitnessgerät</span>
+    <b aria-hidden="true">&rarr;</b>
+    <span>Browser auf Smartphone oder Rechner</span>
+    <b aria-hidden="true">&rarr;</b>
+    <span>Node.js-Relay</span>
+    <b aria-hidden="true">&rarr;</b>
+    <span>Zielanwendung</span>
+  </div>
+
+  <ol>
+    <li>Der Browser abonniert geeignete GATT-Characteristics und interpretiert deren Datenpakete.</li>
+    <li>Messwerte, Geräteinformationen und die bevorzugten Quellen werden per WebSocket an das Relay übertragen.</li>
+    <li>Das Relay hält den letzten Zustand unter dem Verbindungscode im Arbeitsspeicher bereit.</li>
+    <li>Die Zielanwendung ruft die benötigten Daten über einfache HTTPS-Endpunkte als JSON ab.</li>
+  </ol>
+
+  <p>
+    Zum Einstieg ist nicht einmal ein echtes Fitnessgerät erforderlich. Ein Demo-Endpunkt erzeugt künstliche
+    Leistungswerte, mit denen sich die eigene Anbindung entwickeln lässt. Später wird lediglich die Demoquelle durch den
+    Verbindungscode eines echten Nutzers ersetzt.
+  </p>
+
+  <h2>Mehrere Sensoren bleiben sauber unterscheidbar</h2>
+
+  <p>
+    Unterstützt werden unter anderem FTMS, Cycling Power, Cycling Speed and Cadence, Running Speed and Cadence, Heart
+    Rate sowie Batterie- und Geräteinformationen. Damit lassen sich Daten von Indoor-Bikes, Laufbändern, Rudergeräten,
+    Crosstrainern und verschiedenen einzelnen Sensoren gemeinsam erfassen.
+  </p>
+
+  <p>
+    Wenn Pedale und Rollentrainer gleichzeitig Leistung senden, vermischt BLE Bridge die Werte nicht. Der Nutzer legt
+    fest, welche Quelle als Hauptwert gelten soll. Eine einfache Anwendung kann direkt diese Auswahl verwenden;
+    anspruchsvollere Integrationen erhalten weiterhin Zugriff auf alle Quellen mitsamt Geräte- und Protokollangaben.
+  </p>
+
+  <h2>Die Trainersteuerung bleibt bewusst freigabepflichtig</h2>
+
+  <p>
+    Bei passenden FTMS-Trainern funktioniert die Verbindung auch in Gegenrichtung. Befehle aus der Zielanwendung laufen
+    über Relay und Browser zurück zum Gerät. Der Nutzer muss zuvor das Steuerziel auswählen und jede erlaubte
+    Befehlsgruppe freigeben. Zusätzlich berücksichtigt BLE Bridge die vom Trainer gemeldeten Funktionen und begrenzt
+    Werte auf dessen unterstützten Bereich.
+  </p>
+
+  <h2>Öffentlicher Dienst oder eigener Server</h2>
+
+  <p>
+    Unter blebridge.com steht eine öffentliche Installation bereit. Gleichzeitig ist der vollständige Quellcode unter
+    der MIT-Lizenz auf GitHub verfügbar. Das Projekt kann mit Docker selbst gehostet oder direkt aus dem Quellcode
+    gestartet und erweitert werden.
+  </p>
+
+  <p>
+    Das Relay führt absichtlich keine Trainingsdatenbank. Es hält nur aktive Verbindungen und den letzten Messwertstand
+    im Arbeitsspeicher. Wird die Verbindung beendet oder längere Zeit nicht verwendet, verschwindet dieser Laufzeitzustand
+    wieder. Die eigentliche Bluetooth-Verbindung bleibt zu jedem Zeitpunkt lokal zwischen Browser und Fitnessgerät.
+  </p>
+
+  <div class="project-links">
+    <a class="project-link-primary" href="https://blebridge.com" target="_blank" rel="noopener noreferrer">BLE Bridge öffnen</a>
+    <a href="https://github.com/tobias74/ble-web-bridge" target="_blank" rel="noopener noreferrer">Quellcode auf GitHub</a>
+  </div>
+</article>

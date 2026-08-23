@@ -1,0 +1,106 @@
+<article class="project-detail">
+  <a class="project-backlink" href="./index.html">Back to project overview</a>
+
+  <p class="project-card-label">Bluetooth &amp; open source</p>
+  <h1>BLE Bridge</h1>
+
+  <p class="project-lead">
+    BLE Bridge is an open-source adapter for software developers who need live data from Bluetooth Low Energy fitness
+    equipment on a platform that has internet access, but no usable Bluetooth interface of its own.
+  </p>
+
+  <h2>Built for software that can reach the web, not the device</h2>
+
+  <p>
+    Game engines, hosted servers, simulations and restricted scripting environments often support ordinary HTTPS
+    requests while exposing no Bluetooth stack. Adding a native driver may be impossible, operating-system-specific or
+    simply far too heavy for the integration. BLE Bridge moves that hardware-specific work to a browser and gives the
+    target software a small JSON API instead.
+  </p>
+
+  <p>
+    This keeps the consumer deliberately simple. It receives a connection code from the user, polls the relay for the
+    latest measurements and works with familiar JSON objects. It does not need Web Bluetooth, a WebSocket client or
+    physical proximity to the fitness device.
+  </p>
+
+  <h2>A mobile phone can become the Bluetooth edge</h2>
+
+  <p>
+    The browser bridge only needs to run near the sensor or trainer. That can be a laptop, but it can also be a compatible
+    mobile phone with a Web Bluetooth-capable Chromium browser. The phone connects to the equipment locally, reads its
+    GATT Services and forwards normalized telemetry through the internet. The game or dashboard can be running somewhere
+    else entirely.
+  </p>
+
+  <p>
+    For a user, the workflow is lightweight: open BLE Bridge, choose the required GATT Services, connect the device in
+    the browser's Bluetooth picker and copy the displayed connection code into the target application. No native bridge
+    app has to be installed on the phone.
+  </p>
+
+  <h2>From GATT packets to ordinary JSON</h2>
+
+  <div class="project-flow" aria-label="BLE Bridge data path">
+    <span>BLE fitness device</span>
+    <b aria-hidden="true">&rarr;</b>
+    <span>Browser on phone or computer</span>
+    <b aria-hidden="true">&rarr;</b>
+    <span>Node.js relay</span>
+    <b aria-hidden="true">&rarr;</b>
+    <span>Target application</span>
+  </div>
+
+  <ol>
+    <li>The browser subscribes to supported GATT Characteristics and parses their binary measurements.</li>
+    <li>It sends normalized source data and the user's preferred measurement sources to the relay over WebSocket.</li>
+    <li>The in-memory relay keeps the latest snapshot available under the browser's connection code.</li>
+    <li>The target reads selected values or all available sources through standard HTTPS endpoints.</li>
+  </ol>
+
+  <p>
+    A demo endpoint can provide synthetic power data before any real equipment is available. This lets developers build
+    and test the consumer side of an integration first, then replace the demo value with a real connection code later.
+  </p>
+
+  <h2>Several devices, one intentional source</h2>
+
+  <p>
+    BLE Bridge can connect to multiple devices at the same time. It understands common fitness standards including FTMS,
+    Cycling Power, Cycling Speed and Cadence, Running Speed and Cadence, Heart Rate, Battery and Device Information. FTMS
+    measurements cover indoor bikes, treadmills, rowers, cross trainers and climbing equipment.
+  </p>
+
+  <p>
+    Overlapping measurements remain separate. If a smart trainer and a pair of power pedals both report watts, the user
+    can decide which source supplies the primary power value. Developers can use that curated view for a quick
+    integration or inspect the complete source-first schema when device identity and protocol details matter.
+  </p>
+
+  <h2>Trainer control stays in the user's hands</h2>
+
+  <p>
+    Supported FTMS commands can travel back from the target application through the relay and browser to a smart trainer.
+    Control is never silently enabled: the user selects the target device and grants the individual command types in the
+    browser. Before writing, BLE Bridge checks the capabilities and value ranges advertised by the trainer.
+  </p>
+
+  <h2>Hosted for convenience, open for self-hosting</h2>
+
+  <p>
+    The public installation at blebridge.com is ready to use, while the complete MIT-licensed project is available on
+    GitHub. A Docker setup packages the React frontend and Node.js relay together, and the repository documents both
+    production hosting and direct development from source.
+  </p>
+
+  <p>
+    The relay deliberately has no workout database. It holds active channels and the latest telemetry in memory, then
+    removes runtime state after the connection disappears or becomes idle. The physical Bluetooth link always remains
+    between the user's browser and the device.
+  </p>
+
+  <div class="project-links">
+    <a class="project-link-primary" href="https://blebridge.com" target="_blank" rel="noopener noreferrer">Open BLE Bridge</a>
+    <a href="https://github.com/tobias74/ble-web-bridge" target="_blank" rel="noopener noreferrer">View source on GitHub</a>
+  </div>
+</article>
